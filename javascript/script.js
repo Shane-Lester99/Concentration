@@ -40,6 +40,11 @@ const cardGame = {
 			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
 		}
 		return;
+	},
+
+	resetGame: function() {
+		this.currentTurn = [];
+		this.discardPile = [];
 	}
 };
 
@@ -56,8 +61,19 @@ function updateGame(event) {
     cardGame.chooseCard(card);
 }
 
+function resetGame() {
+	cardGame.resetGame();
+	let deckOfCards = document.querySelector("#all-cards");
+	for (let i = 0; i < deckOfCards.children.length; i++) {
+		deckOfCards.children.item(i).style.color = "black";
+	}
+	
+}
+
 //Add event listeners to each card
 const listOfCards = document.querySelectorAll(".card");
 for (let i = 0; i < listOfCards.length; i++) {
 	listOfCards.item(i).addEventListener('click', updateGame);
 }
+
+document.querySelector(".reset").addEventListener('click', resetGame);
