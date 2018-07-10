@@ -2,15 +2,32 @@
 const cardGame = {
 	currentTurn: [],
 
+	cardsOutOfGame: [],
+
 	chooseCard: function(newCard) {
 		if (!this.currentTurn.includes(newCard)) {
 			this.currentTurn.push(newCard);
 		}
 		//If there are two cards in array, it is time to check if they are equal
 		if (this.currentTurn.length == 2) {
-			alert(this.currentTurn);
+			this.checkIfMatch();
 			this.currentTurn = [];
 			return;
+		}
+		return;
+	}, 
+
+	checkIfMatch: function() {	
+		//choose the first and second string in the array, and
+		//the string indexed at 1 is the value of the card (which)
+		//tells us wether it matches or not
+		const card1 = this.currentTurn[0][1];
+		const card2 = this.currentTurn[1][1];
+		if (card1 == card2) {
+			alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
+		}
+		else {
+			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
 		}
 		return;
 	}
