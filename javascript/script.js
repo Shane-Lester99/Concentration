@@ -1,5 +1,7 @@
 //Object to keep track of card game
 const cardGame = {
+	numberOfTurns: 0,
+
 	currentTurn: [],
 
 	discardPile: [],
@@ -39,12 +41,20 @@ const cardGame = {
 		else {
 			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
 		}
+		this.incrementTurns();
 		return;
 	},
 
-	resetGame: function() {
+	incrementTurns: function() {
+		this.numberOfTurns += 1;
+		document.querySelector("#number-of-turns").textContent = this.numberOfTurns;
+	},
+
+	 startOver: function() {
 		this.currentTurn = [];
 		this.discardPile = [];
+		this.numberOfTurns = 0;
+		document.querySelector("#number-of-turns").textContent = 0;
 	}
 };
 
@@ -62,12 +72,11 @@ function updateGame(event) {
 }
 
 function resetGame() {
-	cardGame.resetGame();
+	cardGame.startOver();
 	let deckOfCards = document.querySelector("#all-cards");
 	for (let i = 0; i < deckOfCards.children.length; i++) {
 		deckOfCards.children.item(i).style.color = "black";
 	}
-	
 }
 
 //Add event listeners to each card
