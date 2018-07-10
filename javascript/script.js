@@ -1,15 +1,15 @@
-// //Object to keep track of card game
-// const cardGame = {
-// 	currentTurn: Array,
+//Object to keep track of card game
+const cardGame = {
+	currentTurn: Array,
 
-// 	addCard: function(newCard) {
-// 		return;
-// 	}, 
+	addCard: function(newCard) {
+		return;
+	}, 
 
-// 	turnOver: function() {
-// 		return;
-// 	}
-// };
+	turnOver: function() {
+		return;
+	}
+};
 
 function updateGame(event) {
 	alert(event.target.className);
