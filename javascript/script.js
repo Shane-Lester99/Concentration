@@ -2,9 +2,13 @@
 const cardGame = {
 	currentTurn: [],
 
-	cardsOutOfGame: [],
+	discardPile: [],
 
 	chooseCard: function(newCard) {
+		if (this.discardPile.includes(newCard)) {
+			alert(`${newCard} already chosen.`);
+			return;
+		}
 		if (!this.currentTurn.includes(newCard)) {
 			this.currentTurn.push(newCard);
 		}
@@ -25,6 +29,8 @@ const cardGame = {
 		const card2 = this.currentTurn[1][1];
 		if (card1 == card2) {
 			alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
+			this.discardPile.push(this.currentTurn[0]);
+			this.discardPile.push(this.currentTurn[1]);
 		}
 		else {
 			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
