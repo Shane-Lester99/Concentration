@@ -29,8 +29,12 @@ const cardGame = {
 		const card2 = this.currentTurn[1][1];
 		if (card1 == card2) {
 			alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
+			//Add cards to discard pile
 			this.discardPile.push(this.currentTurn[0]);
 			this.discardPile.push(this.currentTurn[1]);
+			//Turn color of unusable cards to red
+			document.querySelector(`.${this.currentTurn[0]}`).style.color = "red";
+			document.querySelector(`.${this.currentTurn[1]}`).style.color = "red";
 		}
 		else {
 			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
