@@ -16,40 +16,69 @@ const cardGame = {
 
 	difficultyLevel: "",
 
+	flipCardToRevealBack: function(newCard) {
+		this.currentTurn.push(newCard);
+	},
+
+	flipCardToHideBack: function() {
+		alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
+	},
+
+	discardCards: function() {
+		//Add cards to discard pile
+		this.discardPile.push(this.currentTurn[0]);
+		this.discardPile.push(this.currentTurn[1]);
+		//Turn color of unusable cards to red
+		document.querySelector(`.${this.currentTurn[0]}`).style.color = "red";
+		document.querySelector(`.${this.currentTurn[1]}`).style.color = "red";
+		alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
+		return;
+	},
+
 	chooseCard: function(newCard) {
+		//Card selected before 'start game' button pushed
 		if (!this.gameStarted) {
 			alert("Please choose difficulty then select 'Start game' to begin.");
 			return;
 		}
+		//Card selected that has already been flipped over (and found)
 		if (this.discardPile.includes(newCard)) {
 			alert(`${newCard} has already been picked.`);
 			return;
 		}
+		//Test if card selection successful
 		if (!this.currentTurn.includes(newCard)) {
-			this.currentTurn.push(newCard);
+			//Case 1: Succesful, card is flipped for at least rest of turn
+			this.flipCardToRevealBack(newCard);
+			
 		} else {
+			//Case 2: Card has already been selected, nothing happens
 			alert(`${newCard} is currently selected. Please select a different card.`);
 			return;
 		}
-		//If there are two cards in array, it is time to check if they are equal
+		//Check if there are two cards currently flipped over
 		if (this.currentTurn.length == 2) {
-			//Check if the two cards match
+			//Call method to check if the two cards match. This method also increments the turn,
+			//and adds appropriate cards to appropriate containers.
 			const matchStatus = this.checkIfMatch();
+			//Tests if the cards matched
 			if (matchStatus) {
-				//If they match, check if they win
+				//If they match, check if this was the winning match
 				if (this.didWin()) {
+					//Save the timeElapsed so it can be used within the setTimeout() method
 					this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
 					const savedSeconds = this.secondsElapsed;
+					//Set a timeout so the graphics have time to display of the last card selection
 					setTimeout(function() {
-					//Display win alert
-					let endGameMessage = `Congratulations! You Won!\n` 
-					+ `With ${cardGame.numberOfTurns} Moves`
-					+ ` and ${cardGame.numberOfStars} Stars`
-					+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
-					+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
-					alert(endGameMessage);			
-					//Start game over after alert is displayed
-					cardGame.startOver();
+						//Display win alert
+						let endGameMessage = `Congratulations! You Won!\n` 
+						+ `With ${cardGame.numberOfTurns} Moves`
+						+ ` and ${cardGame.numberOfStars} Stars`
+						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
+						+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
+						alert(endGameMessage);			
+						//Start game over after alert is displayed
+						cardGame.startOver();
 					}, 500);
 					return;
 				}
@@ -72,19 +101,18 @@ const cardGame = {
 		//tells us wether it matches or not
 		const card1 = this.currentTurn[0][1];
 		const card2 = this.currentTurn[1][1];
+		//The cards match, so we discard them and they are permanetly flipped over
 		if (card1 == card2) {
-			//Add cards to discard pile
-			this.discardPile.push(this.currentTurn[0]);
-			this.discardPile.push(this.currentTurn[1]);
-			//Turn color of unusable cards to red
-			document.querySelector(`.${this.currentTurn[0]}`).style.color = "red";
-			document.querySelector(`.${this.currentTurn[1]}`).style.color = "red";
-			alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
+			this.discardCards();
 			didTheyMatch = true;
+			
 		} else {
-			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
+			//Cards dont match, so we hide the back again
+			this.flipCardToHideBack();
 		}
-		this.incrementTurns();		
+		//We increment the turn
+		this.incrementTurns();
+		//Return if the match was successful or not		
 		return didTheyMatch;
 	},
 
@@ -247,7 +275,7 @@ const cardGame = {
 		} 
 		return;
 	}
-};
+}
 
 function updateGame(event) {
 	let card = null;
