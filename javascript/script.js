@@ -35,7 +35,8 @@ const cardGame = {
 				if (this.didWin()) {
 					setTimeout(function() {
 					//Display win alert
-					alert(`Congratulations! You Won!\nWith ${cardGame.numberOfTurns} Moves and ${cardGame.numberOfStars} Stars.\nWoooooo!`);			
+					let endGameMessage = `Congratulations! You Won!\nWith ${cardGame.numberOfTurns} Moves and ${cardGame.numberOfStars} Stars on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)} Mode.\nWoooooo!`
+					alert(endGameMessage);			
 					//Start game over after alert is displayed
 					cardGame.startOver();
 					}, 500);
@@ -84,6 +85,7 @@ const cardGame = {
 	},
 
 	 startOver: function() {
+	 	this.gameStarted = false;
 		this.currentTurn = [];
 		this.discardPile = [];
 		this.numberOfTurns = 0;
@@ -136,6 +138,7 @@ const cardGame = {
 				this.numberOfStars = 0;
 			}
 		}
+
 		if (this.difficultyLevel == "hard") {
 			if (this.numberOfMisses == 3) {
 				//4 stars
@@ -168,7 +171,7 @@ const cardGame = {
 			}
 		}
 
-		else if (difficultyLevel == "medium") {
+		if (this.difficultyLevel == "medium") {
 			if (this.numberOfMisses == 4) {
 				//4 stars
 				starLabel.innerHTML = "☆ ☆ ☆ ☆";
@@ -200,7 +203,7 @@ const cardGame = {
 			}
 		}
 
-		else if (difficultyLevel == "hard") {
+		if (this.difficultyLevel == "easy") {
 			if (this.numberOfMisses == 5) {
 				//4 stars
 				starLabel.innerHTML = "☆ ☆ ☆ ☆";
@@ -212,7 +215,7 @@ const cardGame = {
 				this.numberOfStars = 3;
 
 			}
-			else if (this.numberOfMisses == 16) {
+			else if (this.numberOfMisses == 15) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
@@ -254,10 +257,26 @@ function resetGame() {
 	return;
 }
 
+function startGame(event) {
+	event.preventDefault();
+	if (cardGame.gameStarted == true) {
+		alert("Game already started");
+		return;
+	}	
+	cardGame.difficultyLevel = document.querySelector(".difficulty-selector").value;
+	cardGame.gameStarted = true;
+	alert("Game Started");
+	return;
+}
+
 //Add event listeners to each card
 const listOfCards = document.querySelectorAll(".card");
 for (let i = 0; i < listOfCards.length; i++) {
 	listOfCards.item(i).addEventListener('click', updateGame);
 }
 
+//Add reset button functionality to game
 document.querySelector(".reset").addEventListener('click', resetGame);
+
+//Add start button functionality and difficulty form
+document.querySelector("#start-button").addEventListener('click', startGame);

@@ -17,14 +17,14 @@
 			<span class="stars"> ☆ ☆ ☆ ☆ ☆ </span>
 			<form id="choose-difficulty">
 					<span> Choose Difficulty: </span>
-					<select name="difficulty">
+					<select name="difficulty" class="difficulty-selector">
 						<option value="easy"> Easy </option>
-						<option value="medium" choose> Medium </option>
+						<option value="medium" selected> Medium </option>
 						<option value="hard"> Hard </option>
 						<option value="very hard"> Very Hard </option>
 					</select>
 			</form>
-			<button type="submit" form="choose-difficulty" value="Submit"> Start Game</button>
+			<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> Start Game</button>
 
 			<span class="timer"> </span>
 		</header>
