@@ -4,11 +4,21 @@ const cardGame = {
 
 	numberOfMisses: 0,
 
+	numberOfStars: 5,
+
 	currentTurn: [],
 
 	discardPile: [],
 
+	gameStarted: false,
+
+	difficultyLevel: "",
+
 	chooseCard: function(newCard) {
+		if (!this.gameStarted) {
+			alert("Please choose difficulty then select 'Start game' to begin.");
+			return;
+		}
 		if (this.discardPile.includes(newCard)) {
 			alert(`${newCard} already chosen.`);
 			return;
@@ -25,7 +35,7 @@ const cardGame = {
 				if (this.didWin()) {
 					setTimeout(function() {
 					//Display win alert
-					alert(`You won in ${cardGame.numberOfTurns} turns!!`);			
+					alert(`Congratulations! You Won!\nWith ${cardGame.numberOfTurns} Moves and ${cardGame.numberOfStars} Stars.\nWoooooo!`);			
 					//Start game over after alert is displayed
 					cardGame.startOver();
 					}, 500);
@@ -96,26 +106,131 @@ const cardGame = {
 
 	updateStars: function() {
 		const starLabel = document.querySelector(".stars");
-		if (this.numberOfMisses == 1) {
-			//4 stars
-			starLabel.innerHTML = "☆ ☆ ☆ ☆";
+		if (this.difficultyLevel == "very hard") {
+			if (this.numberOfMisses == 2) {
+				//4 stars
+				starLabel.innerHTML = "☆ ☆ ☆ ☆";
+				this.numberOfStars = 4;
+			}
+			else if (this.numberOfMisses == 4) {
+				//3 stars
+				starLabel.innerHTML = "☆ ☆ ☆";
+				this.numberOfStars = 3;
+
+			}
+			else if (this.numberOfMisses == 6) {
+				//2 stars
+				starLabel.innerHTML = "☆ ☆";
+				this.numberOfStars = 2;
+
+			}
+			else if (this.numberOfMisses == 8) {
+				//1 stars
+				starLabel.innerHTML = "☆";
+				this.numberOfStars = 1;
+
+			}
+			else if (this.numberOfMisses == 10) {
+				//0 stars
+				starLabel.innerHTML = "";
+				this.numberOfStars = 0;
+			}
 		}
-		else if (this.numberOfMisses == 3) {
-			//3 stars
-			starLabel.innerHTML = "☆ ☆ ☆";
+		if (this.difficultyLevel == "hard") {
+			if (this.numberOfMisses == 3) {
+				//4 stars
+				starLabel.innerHTML = "☆ ☆ ☆ ☆";
+				this.numberOfStars = 4;
+			}
+			else if (this.numberOfMisses == 6) {
+				//3 stars
+				starLabel.innerHTML = "☆ ☆ ☆";
+				this.numberOfStars = 3;
+
+			}
+			else if (this.numberOfMisses == 9) {
+				//2 stars
+				starLabel.innerHTML = "☆ ☆";
+				this.numberOfStars = 2;
+
+			}
+			else if (this.numberOfMisses == 12) {
+				//1 stars
+				starLabel.innerHTML = "☆";
+				this.numberOfStars = 1;
+
+			}
+			else if (this.numberOfMisses == 15) {
+				//0 stars
+				starLabel.innerHTML = "";
+				this.numberOfStars = 0;
+
+			}
 		}
-		else if (this.numberOfMisses == 5) {
-			//2 stars
-			starLabel.innerHTML = "☆ ☆";
+
+		else if (difficultyLevel == "medium") {
+			if (this.numberOfMisses == 4) {
+				//4 stars
+				starLabel.innerHTML = "☆ ☆ ☆ ☆";
+				this.numberOfStars = 4;
+			}
+			else if (this.numberOfMisses == 8) {
+				//3 stars
+				starLabel.innerHTML = "☆ ☆ ☆";
+				this.numberOfStars = 3;
+
+			}
+			else if (this.numberOfMisses == 12) {
+				//2 stars
+				starLabel.innerHTML = "☆ ☆";
+				this.numberOfStars = 2;
+
+			}
+			else if (this.numberOfMisses == 16) {
+				//1 stars
+				starLabel.innerHTML = "☆";
+				this.numberOfStars = 1;
+
+			}
+			else if (this.numberOfMisses == 20) {
+				//0 stars
+				starLabel.innerHTML = "";
+				this.numberOfStars = 0;
+
+			}
 		}
-		else if (this.numberOfMisses == 7) {
-			//1 stars
-			starLabel.innerHTML = "☆";
-		}
-		else if (this.numberOfMisses == 9) {
-			//0 stars
-			starLabel.innerHTML = "";
-		}
+
+		else if (difficultyLevel == "hard") {
+			if (this.numberOfMisses == 5) {
+				//4 stars
+				starLabel.innerHTML = "☆ ☆ ☆ ☆";
+				this.numberOfStars = 4;
+			}
+			else if (this.numberOfMisses == 10) {
+				//3 stars
+				starLabel.innerHTML = "☆ ☆ ☆";
+				this.numberOfStars = 3;
+
+			}
+			else if (this.numberOfMisses == 16) {
+				//2 stars
+				starLabel.innerHTML = "☆ ☆";
+				this.numberOfStars = 2;
+
+			}
+			else if (this.numberOfMisses == 20) {
+				//1 stars
+				starLabel.innerHTML = "☆";
+				this.numberOfStars = 1;
+
+			}
+			else if (this.numberOfMisses == 25) {
+				//0 stars
+				starLabel.innerHTML = "";
+				this.numberOfStars = 0;
+
+			}
+		} 
 		return;
 	}
 };
