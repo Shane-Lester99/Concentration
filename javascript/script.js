@@ -22,11 +22,14 @@ const cardGame = {
 			return;
 		}
 		if (this.discardPile.includes(newCard)) {
-			alert(`${newCard} already chosen.`);
+			alert(`${newCard} has already been picked.`);
 			return;
 		}
 		if (!this.currentTurn.includes(newCard)) {
 			this.currentTurn.push(newCard);
+		} else {
+			alert(`${newCard} is currently selected. Please select a different card.`);
+			return;
 		}
 		//If there are two cards in array, it is time to check if they are equal
 		if (this.currentTurn.length == 2) {
@@ -78,8 +81,7 @@ const cardGame = {
 			document.querySelector(`.${this.currentTurn[1]}`).style.color = "red";
 			alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
 			didTheyMatch = true;
-		}
-		else {
+		} else {
 			alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
 		}
 		this.incrementTurns();		
@@ -122,25 +124,25 @@ const cardGame = {
 				//4 stars
 				starLabel.innerHTML = "☆ ☆ ☆ ☆";
 				this.numberOfStars = 4;
-			}
+			} 
 			else if (this.numberOfMisses == 4) {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
 
-			}
+			} 
 			else if (this.numberOfMisses == 6) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
 
-			}
+			} 
 			else if (this.numberOfMisses == 8) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
 
-			}
+			} 
 			else if (this.numberOfMisses == 10) {
 				//0 stars
 				starLabel.innerHTML = "";
@@ -153,25 +155,25 @@ const cardGame = {
 				//4 stars
 				starLabel.innerHTML = "☆ ☆ ☆ ☆";
 				this.numberOfStars = 4;
-			}
+			} 
 			else if (this.numberOfMisses == 6) {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
 
-			}
+			} 
 			else if (this.numberOfMisses == 9) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
 
-			}
+			} 
 			else if (this.numberOfMisses == 12) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
 
-			}
+			} 
 			else if (this.numberOfMisses == 15) {
 				//0 stars
 				starLabel.innerHTML = "";
@@ -185,25 +187,25 @@ const cardGame = {
 				//4 stars
 				starLabel.innerHTML = "☆ ☆ ☆ ☆";
 				this.numberOfStars = 4;
-			}
+			} 
 			else if (this.numberOfMisses == 8) {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
 
-			}
+			} 
 			else if (this.numberOfMisses == 12) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
 
-			}
+			} 
 			else if (this.numberOfMisses == 16) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
 
-			}
+			} 
 			else if (this.numberOfMisses == 20) {
 				//0 stars
 				starLabel.innerHTML = "";
@@ -217,25 +219,25 @@ const cardGame = {
 				//4 stars
 				starLabel.innerHTML = "☆ ☆ ☆ ☆";
 				this.numberOfStars = 4;
-			}
+			} 
 			else if (this.numberOfMisses == 10) {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
 
-			}
+			} 
 			else if (this.numberOfMisses == 15) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
 
-			}
+			} 
 			else if (this.numberOfMisses == 20) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
 
-			}
+			} 
 			else if (this.numberOfMisses == 25) {
 				//0 stars
 				starLabel.innerHTML = "";
@@ -252,7 +254,7 @@ function updateGame(event) {
 	//Click directly on <div> element here
 	if (event.target.nodeName === 'DIV') {   
     	card = event.target.classList.item(1);
-    }
+    } 
     //Clicked one of the spans, so we need to get the <div> element to check what card it is
     else if (event.target.parentElement.nodeName === 'DIV'){
      	card = event.target.parentElement.classList.item(1);
