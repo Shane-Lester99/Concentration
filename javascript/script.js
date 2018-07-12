@@ -6,6 +6,8 @@ const cardGame = {
 
 	numberOfStars: 5,
 
+	secondsElapsed: 0,
+
 	currentTurn: [],
 
 	discardPile: [],
@@ -33,9 +35,15 @@ const cardGame = {
 			if (matchStatus) {
 				//If they match, check if they win
 				if (this.didWin()) {
+					this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
+					const savedSeconds = this.secondsElapsed;
 					setTimeout(function() {
 					//Display win alert
-					let endGameMessage = `Congratulations! You Won!\nWith ${cardGame.numberOfTurns} Moves and ${cardGame.numberOfStars} Stars on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)} Mode.\nWoooooo!`
+					let endGameMessage = `Congratulations! You Won!\n` 
+					+ `With ${cardGame.numberOfTurns} Moves`
+					+ ` and ${cardGame.numberOfStars} Stars`
+					+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
+					+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
 					alert(endGameMessage);			
 					//Start game over after alert is displayed
 					cardGame.startOver();
@@ -89,6 +97,7 @@ const cardGame = {
 		this.currentTurn = [];
 		this.discardPile = [];
 		this.numberOfTurns = 0;
+		document.querySelector(".timer").textContent = 0;
 		document.querySelector(".number-of-turns").textContent = 0;
 		let deckOfCards = document.querySelector("#all-cards");
 		for (let i = 0; i < deckOfCards.children.length; i++) {
@@ -252,6 +261,18 @@ function updateGame(event) {
     return;
 }
 
+function startTimer() {
+	let timer = document.querySelector(".timer");
+	//start timer
+	setInterval( function() {
+		//alert("set interval")
+		if (cardGame.gameStarted == true) {
+			timer.textContent = parseInt(timer.textContent, 10) + 1;
+		}
+	
+	}, 1000);
+}
+
 function resetGame() {
 	cardGame.startOver();
 	return;
@@ -266,6 +287,7 @@ function startGame(event) {
 	cardGame.difficultyLevel = document.querySelector(".difficulty-selector").value;
 	cardGame.gameStarted = true;
 	alert("Game Started");
+	startTimer();
 	return;
 }
 
