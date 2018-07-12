@@ -2,6 +2,8 @@
 const cardGame = {
 	numberOfTurns: 0,
 
+	numberOfMisses: 0,
+
 	currentTurn: [],
 
 	discardPile: [],
@@ -29,9 +31,14 @@ const cardGame = {
 					}, 500);
 					return;
 				}
+			} else {
+				this.numberOfMisses += 1;
+				this.updateStars();
 			}
-			//If they didnt win, reset the current turn and continue game play
+			//If they didnt win, reset the current turn, update the stars
+			//and continue game play
 			this.currentTurn = [];
+			
 		}
 		return;
 	}, 
@@ -75,6 +82,7 @@ const cardGame = {
 		for (let i = 0; i < deckOfCards.children.length; i++) {
 			deckOfCards.children.item(i).style.color = "black";
 		}
+		const starLabel = document.querySelector(".stars").innerHTML = "☆ ☆ ☆ ☆ ☆"
 		return;
 	},
 
@@ -84,6 +92,31 @@ const cardGame = {
 			didIWin = true;
 		}
 		return didIWin;
+	},
+
+	updateStars: function() {
+		const starLabel = document.querySelector(".stars");
+		if (this.numberOfMisses == 1) {
+			//4 stars
+			starLabel.innerHTML = "☆ ☆ ☆ ☆";
+		}
+		else if (this.numberOfMisses == 3) {
+			//3 stars
+			starLabel.innerHTML = "☆ ☆ ☆";
+		}
+		else if (this.numberOfMisses == 5) {
+			//2 stars
+			starLabel.innerHTML = "☆ ☆";
+		}
+		else if (this.numberOfMisses == 7) {
+			//1 stars
+			starLabel.innerHTML = "☆";
+		}
+		else if (this.numberOfMisses == 9) {
+			//0 stars
+			starLabel.innerHTML = "";
+		}
+		return;
 	}
 };
 
