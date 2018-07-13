@@ -96,8 +96,10 @@ const cardGame = {
 						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
 						+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
 						document.querySelector(".winning-message").textContent = endGameMessage;
-						document.querySelector("#off-page-modal").style.visibility = "visible";
-						document.querySelector(".winning-modal").style.visibility = "visible";	
+						document.querySelector("#off-page-modal").style.display = "block";
+						document.querySelector(".winning-modal").style.display = "block";
+						document.querySelector(".winning-message").style.display= "inline";
+						document.querySelector(".play-again").style.display = "inline-block";	
 						let header = document.querySelector("header");
 						let main = document.querySelector("main");
 						header.style.position = "absolute";	
@@ -343,10 +345,16 @@ function resetGame() {
 	return;
 }
 
+function randomizeCards() {
+	return;
+}
+
 function playAgain() {
 	cardGame.startOver();
-	document.querySelector("#off-page-modal").style.visibility = "hidden";
-	document.querySelector(".winning-modal").style.visibility = "hidden";	
+	document.querySelector("#off-page-modal").style.display = "none";
+	document.querySelector(".winning-modal").style.display= "none";
+	document.querySelector(".winning-message").style.display = "none";
+	document.querySelector(".play-again").style.display = "none";		
 	let header = document.querySelector("header");
 	let main = document.querySelector("main");
 	header.style.position = "static";	
@@ -362,6 +370,7 @@ function startGame(event) {
 		return;
 	}	
 	cardGame.difficultyLevel = document.querySelector(".difficulty-selector").value;
+	randomizeCards();
 	cardGame.gameStarted = true;
 	alert("Game Started");
 	startTimer();
