@@ -1,3 +1,6 @@
+
+//TODO: find out why second element doesnt flip
+
 //Object to keep track of card game
 const cardGame = {
 	numberOfTurns: 0,
@@ -17,21 +20,37 @@ const cardGame = {
 	difficultyLevel: "",
 
 	flipCardToRevealBack: function(newCard) {
+		let cardElement = document.querySelector(`.${newCard}`);
+		cardElement.firstElementChild.style.visibility = "hidden";
+		cardElement.lastElementChild.style.visibility = "visible";
 		this.currentTurn.push(newCard);
 	},
 
-	flipCardToHideBack: function() {
-		alert(`${this.currentTurn[0]} and ${this.currentTurn[1]} dont match`);
+	flipCardToHideBack: function(currentTurnArray) {
+		setTimeout(function() {
+			let card1 = document.querySelector(`.${currentTurnArray[0]}`);
+			let card2 = document.querySelector(`.${currentTurnArray[1]}`);
+
+			card1.firstElementChild.style.visibility = "visible";
+			card1.lastElementChild.style.visibility = "hidden";
+
+			card2.firstElementChild.style.visibility = "visible";
+			card2.lastElementChild.style.visibility = "hidden";
+
+			//alert(`${currentTurnArray[0]} and ${currentTurnArray[1]} dont match`);
+		}, 250);
 	},
 
-	discardCards: function() {
-		//Add cards to discard pile
-		this.discardPile.push(this.currentTurn[0]);
-		this.discardPile.push(this.currentTurn[1]);
-		//Turn color of unusable cards to red
-		document.querySelector(`.${this.currentTurn[0]}`).style.color = "red";
-		document.querySelector(`.${this.currentTurn[1]}`).style.color = "red";
-		alert(`match of ${this.currentTurn[0]} and ${this.currentTurn[1]}`);
+	discardCards: function(currentTurnArray) {
+		//setTimeout(function() {
+			//Add cards to discard pile
+			this.discardPile.push(currentTurnArray[0]);
+			this.discardPile.push(currentTurnArray[1]);
+			//Turn color of unusable cards to red
+			document.querySelector(`.${currentTurnArray[0]}`).style.color = "red";
+			document.querySelector(`.${currentTurnArray[1]}`).style.color = "red";
+		//	alert(`match of ${currentTurnArray[0]} and ${currentTurnArray[1]}`);
+		//}, 1000);
 		return;
 	},
 
@@ -43,7 +62,7 @@ const cardGame = {
 		}
 		//Card selected that has already been flipped over (and found)
 		if (this.discardPile.includes(newCard)) {
-			alert(`${newCard} has already been picked.`);
+			//alert(`${newCard} has already been picked.`);
 			return;
 		}
 		//Test if card selection successful
@@ -53,7 +72,7 @@ const cardGame = {
 			
 		} else {
 			//Case 2: Card has already been selected, nothing happens
-			alert(`${newCard} is currently selected. Please select a different card.`);
+			//alert(`${newCard} is currently selected. Please select a different card.`);
 			return;
 		}
 		//Check if there are two cards currently flipped over
@@ -103,20 +122,24 @@ const cardGame = {
 		const card2 = this.currentTurn[1][1];
 		//The cards match, so we discard them and they are permanetly flipped over
 		if (card1 == card2) {
-			this.discardCards();
+			let correctCards = this.currentTurn;
+			this.discardCards(correctCards);
 			didTheyMatch = true;
+			//We increment the turn
+			this.incrementTurn();
 			
 		} else {
+			let flipTheseCardsBack = this.currentTurn;
 			//Cards dont match, so we hide the back again
-			this.flipCardToHideBack();
+			this.flipCardToHideBack(flipTheseCardsBack);
+			this.incrementTurn();
 		}
-		//We increment the turn
-		this.incrementTurns();
+		
 		//Return if the match was successful or not		
 		return didTheyMatch;
 	},
 
-	incrementTurns: function() {
+	incrementTurn: function() {
 		this.numberOfTurns += 1;
 		document.querySelector(".number-of-turns").textContent = this.numberOfTurns;
 		return;
@@ -132,6 +155,8 @@ const cardGame = {
 		let deckOfCards = document.querySelector("#all-cards");
 		for (let i = 0; i < deckOfCards.children.length; i++) {
 			deckOfCards.children.item(i).style.color = "black";
+			deckOfCards.children.item(i).firstElementChild.style.visibility = "visible";
+			deckOfCards.children.item(i).lastElementChild.style.visibility = "hidden";
 		}
 		const starLabel = document.querySelector(".stars").innerHTML = "☆ ☆ ☆ ☆ ☆"
 		return;
@@ -332,3 +357,10 @@ document.querySelector(".reset").addEventListener('click', resetGame);
 
 //Add start button functionality and difficulty form
 document.querySelector("#start-button").addEventListener('click', startGame);
+
+//Face all the cards face up
+let backOfCardList = document.querySelectorAll(".back-of-card");
+//Iterate through list and hide all of them
+for (let i = 0; i < backOfCardList.length; i++) {
+	backOfCardList[i].style.visibility = "hidden";
+}
