@@ -88,7 +88,7 @@ const cardGame = {
 					this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
 					const savedSeconds = this.secondsElapsed;
 					//Set a timeout so the graphics have time to display of the last card selection
-					//setTimeout(function() {
+					setTimeout(function() {
 						//Display win alert
 						let endGameMessage = `Congratulations! You Won!\n` 
 						+ `With ${cardGame.numberOfTurns} Moves`
@@ -108,7 +108,7 @@ const cardGame = {
 						main.style.right = "-1000px";
 						//Start game over after alert is displayed
 						//cardGame.startOver();
-					//}, 500);
+					}, 500);
 					return;
 				}
 			} else {
@@ -346,6 +346,10 @@ function resetGame() {
 }
 
 function randomizeCards() {
+	const listOfCards = document.querySelectorAll(".card");
+	for (let i = 0; i < listOfCards.length; i++) {
+		listOfCards.item(i).style.order = `${Math.floor(Math.random() * 1000)}`;
+	}
 	return;
 }
 

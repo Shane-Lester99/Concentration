@@ -1,15 +1,17 @@
-* {
-	width: 100%;
+body {
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
 }
 
 button, select {
 	width: 10vw;
 }
 
-
-
-
-
+#all-cards {
+	display: flex;
+	flex-direction: column;
+}
 
 /*Styling for the modal*/
 #off-page-modal {
