@@ -1,5 +1,5 @@
 
-//TODO: find out why second element doesnt flip
+//TODO: Once the game starts over once, the timer doubles in spped
 
 //Object to keep track of card game
 const cardGame = {
@@ -88,17 +88,25 @@ const cardGame = {
 					this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
 					const savedSeconds = this.secondsElapsed;
 					//Set a timeout so the graphics have time to display of the last card selection
-					setTimeout(function() {
+					//setTimeout(function() {
 						//Display win alert
 						let endGameMessage = `Congratulations! You Won!\n` 
 						+ `With ${cardGame.numberOfTurns} Moves`
 						+ ` and ${cardGame.numberOfStars} Stars`
 						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
 						+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
-						alert(endGameMessage);			
+						document.querySelector(".winning-message").textContent = endGameMessage;
+						document.querySelector("#off-page-modal").style.visibility = "visible";
+						document.querySelector(".winning-modal").style.visibility = "visible";	
+						let header = document.querySelector("header");
+						let main = document.querySelector("main");
+						header.style.position = "absolute";	
+						main.style.position = "absolute";
+						header.style.right = "-1000px";
+						main.style.right = "-1000px";
 						//Start game over after alert is displayed
-						cardGame.startOver();
-					}, 500);
+						//cardGame.startOver();
+					//}, 500);
 					return;
 				}
 			} else {
@@ -150,6 +158,7 @@ const cardGame = {
 		this.currentTurn = [];
 		this.discardPile = [];
 		this.numberOfTurns = 0;
+		this.secondsElapsed = 0;
 		document.querySelector(".timer").textContent = 0;
 		document.querySelector(".number-of-turns").textContent = 0;
 		let deckOfCards = document.querySelector("#all-cards");
@@ -305,11 +314,11 @@ const cardGame = {
 function updateGame(event) {
 	let card = null;
 	//Click directly on <div> element here
-	if (event.target.nodeName === 'DIV') {   
+	if (event.target.nodeName === "DIV") {   
     	card = event.target.classList.item(1);
     } 
     //Clicked one of the spans, so we need to get the <div> element to check what card it is
-    else if (event.target.parentElement.nodeName === 'DIV'){
+    else if (event.target.parentElement.nodeName === "DIV"){
      	card = event.target.parentElement.classList.item(1);
     }
     cardGame.chooseCard(card);
@@ -317,20 +326,33 @@ function updateGame(event) {
 }
 
 function startTimer() {
-	let timer = document.querySelector(".timer");
+	let timerLabel = document.querySelector(".timer");
 	//start timer
-	setInterval( function() {
+	let physicalTimer = setInterval( function() {
 		//alert("set interval")
 		if (cardGame.gameStarted == true) {
-			timer.textContent = parseInt(timer.textContent, 10) + 1;
-		}
-	
+			timerLabel.textContent = parseInt(timerLabel.textContent, 10) + 1;
+		} else {
+			clearInterval(physicalTimer);
+		}	
 	}, 1000);
 }
 
 function resetGame() {
 	cardGame.startOver();
 	return;
+}
+
+function playAgain() {
+	cardGame.startOver();
+	document.querySelector("#off-page-modal").style.visibility = "hidden";
+	document.querySelector(".winning-modal").style.visibility = "hidden";	
+	let header = document.querySelector("header");
+	let main = document.querySelector("main");
+	header.style.position = "static";	
+	main.style.position = "static";
+	header.style.right = "0px";
+    main.style.right = "0px";
 }
 
 function startGame(event) {
@@ -353,7 +375,10 @@ for (let i = 0; i < listOfCards.length; i++) {
 }
 
 //Add reset button functionality to game
-document.querySelector(".reset").addEventListener('click', resetGame);
+document.querySelector(".reset").addEventListener("click", resetGame);
+
+//Add play again functionality
+document.querySelector(".play-again").addEventListener("click", playAgain);
 
 //Add start button functionality and difficulty form
 document.querySelector("#start-button").addEventListener('click', startGame);
