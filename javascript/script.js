@@ -394,7 +394,7 @@ for (let i = 0; i < listOfCards.length; i++) {
 document.querySelector(".reset").addEventListener("click", resetGame);
 
 //Add play again functionality
-document.querySelector(".play-again").addEventListener("click", playAgain);
+document.querySelector("#play-again").addEventListener("click", playAgain);
 
 //Add start button functionality and difficulty form
 document.querySelector("#start-button").addEventListener('click', startGame);
