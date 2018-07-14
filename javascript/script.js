@@ -21,8 +21,8 @@ const cardGame = {
 
 	flipCardToRevealBack: function(newCard) {
 		let cardElement = document.querySelector(`.${newCard}`);
-		cardElement.firstElementChild.style.visibility = "hidden";
-		cardElement.lastElementChild.style.visibility = "visible";
+		cardElement.firstElementChild.style.display = "none";
+		cardElement.lastElementChild.style.display = "block";
 		this.currentTurn.push(newCard);
 	},
 
@@ -31,11 +31,11 @@ const cardGame = {
 			let card1 = document.querySelector(`.${currentTurnArray[0]}`);
 			let card2 = document.querySelector(`.${currentTurnArray[1]}`);
 
-			card1.firstElementChild.style.visibility = "visible";
-			card1.lastElementChild.style.visibility = "hidden";
+			card1.firstElementChild.style.display = "block";
+			card1.lastElementChild.style.display = "none";
 
-			card2.firstElementChild.style.visibility = "visible";
-			card2.lastElementChild.style.visibility = "hidden";
+			card2.firstElementChild.style.display = "block";
+			card2.lastElementChild.style.display = "none";
 
 			//alert(`${currentTurnArray[0]} and ${currentTurnArray[1]} dont match`);
 		}, 250);
@@ -166,8 +166,8 @@ const cardGame = {
 		let deckOfCards = document.querySelector("#all-cards");
 		for (let i = 0; i < deckOfCards.children.length; i++) {
 			deckOfCards.children.item(i).style.color = "black";
-			deckOfCards.children.item(i).firstElementChild.style.visibility = "visible";
-			deckOfCards.children.item(i).lastElementChild.style.visibility = "hidden";
+			deckOfCards.children.item(i).firstElementChild.style.display = "block";
+			deckOfCards.children.item(i).lastElementChild.style.display = "none";
 		}
 		const starLabel = document.querySelector(".stars").innerHTML = "☆ ☆ ☆ ☆ ☆"
 		return;
@@ -400,5 +400,5 @@ document.querySelector("#start-button").addEventListener('click', startGame);
 let backOfCardList = document.querySelectorAll(".back-of-card");
 //Iterate through list and hide all of them
 for (let i = 0; i < backOfCardList.length; i++) {
-	backOfCardList[i].style.visibility = "hidden";
+	backOfCardList[i].style.display = "none";
 }

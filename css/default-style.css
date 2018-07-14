@@ -1,16 +1,75 @@
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
 	max-width: 100%;
+	height: 100%;
+	background: radial-gradient(circle, #ab7dd1, #00ceba);
+	
 }
 
 button, select {
-	width: 10vw;
+	width: 20vw;
+
+}
+
+#game-data-and-reset {
+	
+	border-radius: 5px;
+}
+
+.title-of-game {
+	text-align: center;
+	font-family: 'Knewave', cursive;
+	font-size: 10vw;
+	color: #2b3e4a;
+	border-style: solid;
+	border-width: 1vw;
+	border-radius: 5vw;
+	line-height: 12vw;
+}
+
+.subtitle {
+	font-size: 5vw;
+}
+
+#card-game {
+	height: 100%;
+	width: 100%;
+	/*background: linear-gradient(to top left, #ab7dd1, #00ceba);*/
 }
 
 #all-cards {
-	display: flex;
-	flex-direction: column;
+	
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 30vw;
+	grid-column-gap: 3vmin;
+	grid-row-gap: 3vmin;
+	border-radius: 5px;
+	align-content: stretch;
+
+}
+
+.front-of-card {
+	background-color: #2b3e4a;
+}
+
+.back-of-card {
+	background-color: #00cfba;
+}
+
+.front-of-card, .back-of-card {
+	display: block;
+	height: 20vmin;
+	width: 20vmin;
+	border-radius: 5px;
 }
 
 /*Styling for the modal*/
