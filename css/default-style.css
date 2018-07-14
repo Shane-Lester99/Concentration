@@ -84,7 +84,7 @@ button, select {
 	z-index: 1;
 	top: 0;
 	left: 0;
-	position: absolute; 
+	position: fixed; 
 	/*width: 100%;*/
 	/*z-index: 1;
 	height: 100%;
@@ -98,5 +98,8 @@ button, select {
 };
 
 .play-again {
-	background-color: red;
+	color: white;
+	border-style: solid;
+	border-radius: 5px;
+	border-color: white;
 }
