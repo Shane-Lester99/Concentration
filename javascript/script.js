@@ -38,7 +38,7 @@ const cardGame = {
 			card2.lastElementChild.style.display = "none";
 
 			//alert(`${currentTurnArray[0]} and ${currentTurnArray[1]} dont match`);
-		}, 250);
+		}, 750);
 	},
 
 	discardCards: function(currentTurnArray) {
