@@ -12,15 +12,39 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
 
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 	</head>
 
 	<body>
 		<header id="game-data-and-reset">
-			<h1 class="title-of-game"> Concentration:<br><span class="subtitle"> The Classic Matching Game.</span> </h1>
-			<span class="number-of-turns"> 0 </span>
-			<button class="reset"> reset </button>
-			<span class="stars"> ☆ ☆ ☆ ☆ ☆ </span>
-			<form id="choose-difficulty">
+
+			<div class="game-title">
+				<h1 class="title-of-game"> Concentration:<br><span class="subtitle"> The Classic Matching Game.</span> </h1>
+			</div>
+
+			 <div class="game-data">
+
+			 	<div class="player-moves-and-stars"> 
+					<span class="number-of-turns"> 0 </span> 
+					<span class="moves"> Moves: </span>
+					<br>
+					<span class="stars"> ☆ ☆ ☆ ☆ ☆ </span>
+				</div>
+
+				<div class="reset-game">
+					<span class="reset-label"> Reset Game: </span> <br>
+					<button class="reset"> <i class="fas fa-redo"></i> </button>
+				</div>
+				
+				<div class="timer-with-label">
+					<span class="time-elapse-label">Seconds Elapsed: </span> <br> 
+					<span class="timer"> 0 </span>
+				</div>
+			</div>
+
+			<aside class="off-page-start-modal modal">
+				<form id="choose-difficulty">
 					<span> Choose Difficulty: </span>
 					<select name="difficulty" class="difficulty-selector">
 						<option value="easy"> Easy </option>
@@ -28,9 +52,9 @@
 						<option value="hard"> Hard </option>
 						<option value="very hard"> Very Hard </option>
 					</select>
-			</form>
-			<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> Start Game</button>
-			<span>Seconds Elapsed: </span> <span class="timer"> 0 </span>
+				</form>
+				<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> Start Game</button>
+			</aside>
 		</header>
 
 		<main id="card-game">
@@ -119,7 +143,7 @@
 
 			</div>
 		</main>
-		<aside id="off-page-win-modal">
+		<aside class="off-page-win-modal modal">
 			<div class="winning-modal">
 				<span class="winning-message"> </span>
 				 <button type="button" id="play-again"> play again? </button>

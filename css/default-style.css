@@ -27,8 +27,6 @@ button, select {
 
 }
 
-
-
 #game-data-and-reset {
 	
 	border-radius: 5px;
@@ -55,6 +53,19 @@ button, select {
 	font-size: 5vw;
 }
 
+.game-data {
+	display: flex;
+	justify-content: space-between;
+	font-size: 4vw;
+	margin-right: 3vw;
+	margin-left: 3vw;
+	text-align: center;
+	margin-top: 8vh;
+	text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);
+	color: black;
+	font-weight: bolder;
+}
+
 #card-game {
 	height: 100%;
 	width: 100%;
@@ -73,8 +84,7 @@ button, select {
 	align-content: stretch;
 	margin-left: 2vw;
 	margin-right: 2vw;
-	margin-top: 8vh;
-
+	margin-top: 2vh;
 
 }
 
@@ -105,7 +115,7 @@ button, select {
 }
 
 /*Styling for the modal*/
-#off-page-win-modal {
+.modal {
 	display: none;
 	background-color: black;
 	color: white;
