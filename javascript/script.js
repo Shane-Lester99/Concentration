@@ -96,16 +96,18 @@ const cardGame = {
 						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
 						+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
 						document.querySelector(".winning-message").textContent = endGameMessage;
-						document.querySelector("#off-page-modal").style.display = "block";
-						document.querySelector(".winning-modal").style.display = "block";
-						document.querySelector(".winning-message").style.display= "inline";
-						document.querySelector(".play-again").style.display = "inline-block";	
-						let header = document.querySelector("header");
-						let main = document.querySelector("main");
-						header.style.position = "absolute";	
-						main.style.position = "absolute";
-						header.style.right = "-1000px";
-						main.style.right = "-1000px";
+						document.querySelector("#off-page-win-modal").style.display = "block";
+						// document.querySelector(".winning-modal").style.display = "block";
+						// document.querySelector(".winning-message").style.display= "inline";
+						// document.querySelector(".play-again").style.display = "inline-block";	
+						
+
+						// let header = document.querySelector("header");
+						// let main = document.querySelector("main");
+						// header.style.position = "absolute";	
+						// main.style.position = "absolute";
+						// header.style.right = "-1000px";
+						// main.style.right = "-1000px";
 						//Start game over after alert is displayed
 						//cardGame.startOver();
 					}, 500);
@@ -161,6 +163,7 @@ const cardGame = {
 		this.discardPile = [];
 		this.numberOfTurns = 0;
 		this.secondsElapsed = 0;
+		this.numberOfStars = 5;
 		document.querySelector(".timer").textContent = 0;
 		document.querySelector(".number-of-turns").textContent = 0;
 		let deckOfCards = document.querySelector("#all-cards");
@@ -356,15 +359,15 @@ function randomizeCards() {
 function playAgain() {
 	cardGame.startOver();
 	document.querySelector("#off-page-modal").style.display = "none";
-	document.querySelector(".winning-modal").style.display= "none";
-	document.querySelector(".winning-message").style.display = "none";
-	document.querySelector(".play-again").style.display = "none";		
-	let header = document.querySelector("header");
-	let main = document.querySelector("main");
-	header.style.position = "static";	
-	main.style.position = "static";
-	header.style.right = "0px";
-    main.style.right = "0px";
+	// document.querySelector(".winning-modal").style.display= "none";
+	// document.querySelector(".winning-message").style.display = "none";
+	// document.querySelector(".play-again").style.display = "none";		
+	// let header = document.querySelector("header");
+	// let main = document.querySelector("main");
+	// header.style.position = "static";	
+	// main.style.position = "static";
+	// header.style.right = "0px";
+ //    main.style.right = "0px";
 }
 
 function startGame(event) {
