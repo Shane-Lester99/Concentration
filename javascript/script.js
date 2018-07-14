@@ -109,7 +109,7 @@ const cardGame = {
 						// header.style.right = "-1000px";
 						// main.style.right = "-1000px";
 						//Start game over after alert is displayed
-						//cardGame.startOver();
+						cardGame.gameStarted = false;
 					}, 500);
 					return;
 				}
@@ -358,7 +358,7 @@ function randomizeCards() {
 
 function playAgain() {
 	cardGame.startOver();
-	document.querySelector("#off-page-modal").style.display = "none";
+	document.querySelector("#off-page-win-modal").style.display = "none";
 	// document.querySelector(".winning-modal").style.display= "none";
 	// document.querySelector(".winning-message").style.display = "none";
 	// document.querySelector(".play-again").style.display = "none";		
