@@ -52,6 +52,14 @@ button, select {
 
 }
 
+button, select, .card {
+	cursor: pointer;
+}
+
+.card:hover {
+	opacity: 0.8;
+}
+
 #game-data-and-reset {
 	
 	border-radius: 5px;
