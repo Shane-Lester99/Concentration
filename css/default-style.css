@@ -16,11 +16,36 @@ body {
 }
 
 #play-again {
-	color: white;
+	color: black;
 	border-style: solid;
 	border-width: 5px;
-	border-color: white;
 }
+
+#take-a-break {
+	color: black;
+	border-style: solid;
+	border-width: 5px;
+}
+
+#go-back {
+	color: black;
+	border-style: solid;
+	border-width: 5px;
+}
+
+#start-button {
+	color: black;
+	border-style: solid;
+	border-width: 5px;
+}
+
+.difficulty-selector {
+	color: black;
+	border-style: solid;
+	border-width: 5px;
+}
+
+
 
 button, select {
 	width: 20vw;
@@ -85,7 +110,6 @@ button, select {
 	margin-left: 2vw;
 	margin-right: 2vw;
 	margin-top: 2vh;
-
 }
 
 .front-of-card {
@@ -93,7 +117,7 @@ button, select {
 	/*color: white;*/
 	/*background-color: #8000ae*/
 	background-color: #708090;
-	color: #708090;
+	color: white;
 }
 
 .back-of-card {

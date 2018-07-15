@@ -17,6 +17,8 @@ const cardGame = {
 
 	gameStarted: false,
 
+	gameInitialized: false,
+
 	difficultyLevel: "",
 
 	flipCardToRevealBack: function(newCard) {
@@ -57,7 +59,7 @@ const cardGame = {
 	chooseCard: function(newCard) {
 		//Card selected before 'start game' button pushed
 		if (!this.gameStarted) {
-			alert("Please choose difficulty then select 'Start game' to begin.");
+			//alert("Please choose difficulty then select 'Start game' to begin.");
 			return;
 		}
 		//Card selected that has already been flipped over (and found)
@@ -344,7 +346,10 @@ function startTimer() {
 }
 
 function resetGame() {
-	cardGame.startOver();
+	cardGame.gameInitialized = false;
+	cardGame.gameStarted = false;
+	document.querySelector("body").addEventListener("click", initializeGame);
+
 	return;
 }
 
@@ -359,6 +364,8 @@ function randomizeCards() {
 function playAgain() {
 	cardGame.startOver();
 	document.querySelector(".off-page-win-modal").style.display = "none";
+	resetGame();
+	startGame();
 	// document.querySelector(".winning-modal").style.display= "none";
 	// document.querySelector(".winning-message").style.display = "none";
 	// document.querySelector(".play-again").style.display = "none";		
@@ -370,8 +377,34 @@ function playAgain() {
  //    main.style.right = "0px";
 }
 
+
+function takeBreakAfterWin() {
+	document.querySelector(".off-page-start-modal").style.display = "none";
+	setTimeout(function() {
+		cardGame.gameInitialized = false;
+		document.querySelector("body").addEventListener("click", initializeGame);
+	}, 1000);
+}
+
+function takeBreakBeforeStart() {
+	document.querySelector(".off-page-start-modal").style.display = "none";
+	setTimeout(function() {
+		cardGame.gameInitialized = false;
+		document.querySelector("body").addEventListener("click", initializeGame);
+	}, 1000);
+}
+
 function startGame(event) {
 	event.preventDefault();
+	//Get rid of modal
+	document.querySelector(".off-page-start-modal").style.display = "none";
+
+	cardGame.startOver();
+
+	//gameInitialized set to true
+	cardGame.gameInitialized = true;
+
+
 	if (cardGame.gameStarted == true) {
 		alert("Game already started");
 		return;
@@ -379,9 +412,18 @@ function startGame(event) {
 	cardGame.difficultyLevel = document.querySelector(".difficulty-selector").value;
 	randomizeCards();
 	cardGame.gameStarted = true;
-	alert("Game Started");
 	startTimer();
 	return;
+}
+
+function initializeGame() {
+	if (cardGame.gameInitialized) {
+		document.querySelector("body").removeEventListener("click", initializeGame)
+	}
+	else {
+	//Modal comes up with start button
+		document.querySelector(".off-page-start-modal").style.display = "block";
+	}
 }
 
 //Add event listeners to each card
@@ -396,12 +438,19 @@ document.querySelector(".reset").addEventListener("click", resetGame);
 //Add play again functionality
 document.querySelector("#play-again").addEventListener("click", playAgain);
 
+//Add take a break functionality
+document.querySelector("#take-a-break").addEventListener("click", takeBreakAfterWin);
+
+document.querySelector("#go-back").addEventListener("click", takeBreakBeforeStart);
+
 //Add start button functionality and difficulty form
 document.querySelector("#start-button").addEventListener('click', startGame);
-
 //Face all the cards face up
 let backOfCardList = document.querySelectorAll(".back-of-card");
 //Iterate through list and hide all of them
 for (let i = 0; i < backOfCardList.length; i++) {
 	backOfCardList[i].style.display = "none";
 }
+
+document.querySelector("body").addEventListener("click", initializeGame)
+

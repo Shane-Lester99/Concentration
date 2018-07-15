@@ -23,6 +23,8 @@
 				<h1 class="title-of-game"> Concentration:<br><span class="subtitle"> The Classic Matching Game.</span> </h1>
 			</div>
 
+			
+
 			 <div class="game-data">
 
 			 	<div class="player-moves-and-stars"> 
@@ -42,19 +44,6 @@
 					<span class="timer"> 0 </span>
 				</div>
 			</div>
-
-			<aside class="off-page-start-modal modal">
-				<form id="choose-difficulty">
-					<span> Choose Difficulty: </span>
-					<select name="difficulty" class="difficulty-selector">
-						<option value="easy"> Easy </option>
-						<option value="medium" selected> Medium </option>
-						<option value="hard"> Hard </option>
-						<option value="very hard"> Very Hard </option>
-					</select>
-				</form>
-				<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> Start Game</button>
-			</aside>
 		</header>
 
 		<main id="card-game">
@@ -147,7 +136,35 @@
 			<div class="winning-modal">
 				<span class="winning-message"> </span>
 				 <button type="button" id="play-again"> play again? </button>
+				 <button type="button" id="take-a-break"> take a break? </button>
 			</div>
+		</aside>
+
+
+		<aside class="off-page-start-modal modal">
+			<form id="choose-difficulty">
+				<p> Welcome to Concentration, the classic matching game. </p>
+
+				<p> The rules of the game are simple: flip the cards over and match the emojis correctly as quickly as possible. </p>
+
+				<p> Also, make sure to get as little incorrect pairings to get as many stars as possible </p>
+
+				<p> First, choose a difficulty level. The harder the difficulty, the quicker the stars will dissappear as incorrect pairings are chosen. </p>
+				<span> Choose Difficulty: </span>
+				<select name="difficulty" class="difficulty-selector">
+					<option value="easy"> Easy </option>
+					<option value="medium" selected> Medium </option>
+					<option value="hard"> Hard </option>
+					<option value="very hard"> Very Hard </option>
+				</select>
+			</form>
+
+			<p> Once you are ready, press 'Begin Game' and get matching! </p>
+
+			<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> Begin Game </button>
+
+			<button type="button" id="go-back"> Go Back </button>
+
 		</aside>
 
 
