@@ -48,8 +48,8 @@ body {
 
 
 button, select {
-	width: 20vw;
-
+	min-width: 20vmin;
+	width: 20vmin;
 }
 
 button, select, .card {
@@ -125,7 +125,7 @@ button, select, .card {
 	/*color: white;*/
 	/*background-color: #8000ae*/
 	background-color: #708090;
-	color: white;
+	color: #708090;
 }
 
 .back-of-card {
@@ -184,11 +184,18 @@ button, select, .card {
 	font-size: 8vw;
 }
 
+.off-page-start-modal {
+	font-size: 4vw;
+	font-weight: bold;
+	line-height: 6vw;
+}
+
 .thumbs-up {
+	padding-top: 15vw;
 	font-size: 20vw;
 	opacity: 1.0;
 	animation-name: spin;
-	animation-duration: 2s;
+	animation-duration: 2.5s;
 }
 
 @keyframes spin {

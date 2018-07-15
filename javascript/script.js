@@ -96,7 +96,7 @@ const cardGame = {
 						+ `With ${cardGame.numberOfTurns} Moves`
 						+ ` and ${cardGame.numberOfStars} Stars`
 						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
-						+ ` Mode in ${savedSeconds} Seconds.<br>Woooooo!`
+						+ ` Mode in ${savedSeconds} Seconds.<br>Well done!`
 						document.querySelector(".winning-message").innerHTML = endGameMessage;
 						document.querySelector(".off-page-win-modal").style.display = "block";
 						// document.querySelector(".winning-modal").style.display = "block";
@@ -166,6 +166,7 @@ const cardGame = {
 		this.numberOfTurns = 0;
 		this.secondsElapsed = 0;
 		this.numberOfStars = 5;
+		this.numberOfMisses = 0;
 		document.querySelector(".timer").textContent = 0;
 		document.querySelector(".number-of-turns").textContent = 0;
 		let deckOfCards = document.querySelector("#all-cards");
@@ -184,6 +185,33 @@ const cardGame = {
 			didIWin = true;
 		}
 		return didIWin;
+	},
+
+	youLose: function() {
+		//Save the timeElapsed so it can be used within the setTimeout() method
+		this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
+		const savedSeconds = this.secondsElapsed;
+		//Set a timeout so the graphics have time to display of the last card selection
+		setTimeout(function() {
+			//Display win alert
+			let endGameMessage = `Oh no, you ran out of stars! <br> Game Over!` 
+			document.querySelector(".thumbs-up").textContent = "😭";
+			document.querySelector(".winning-message").innerHTML = endGameMessage;
+			document.querySelector(".off-page-win-modal").style.display = "block";
+			// document.querySelector(".winning-modal").style.display = "block";
+			// document.querySelector(".winning-message").style.display= "inline";
+			// document.querySelector(".play-again").style.display = "inline-block";	
+			
+
+			// let header = document.querySelector("header");
+			// let main = document.querySelector("main");
+			// header.style.position = "absolute";	
+			// main.style.position = "absolute";
+			// header.style.right = "-1000px";
+			// main.style.right = "-1000px";
+			//Start game over after alert is displayed
+			cardGame.gameStarted = false;
+		}, 500);
 	},
 
 	updateStars: function() {
@@ -216,6 +244,7 @@ const cardGame = {
 				//0 stars
 				starLabel.innerHTML = "";
 				this.numberOfStars = 0;
+				this.youLose();
 			}
 		}
 
@@ -247,7 +276,7 @@ const cardGame = {
 				//0 stars
 				starLabel.innerHTML = "";
 				this.numberOfStars = 0;
-
+				this.youLose();
 			}
 		}
 
@@ -279,6 +308,7 @@ const cardGame = {
 				//0 stars
 				starLabel.innerHTML = "";
 				this.numberOfStars = 0;
+				this.youLose();
 
 			}
 		}
@@ -311,6 +341,7 @@ const cardGame = {
 				//0 stars
 				starLabel.innerHTML = "";
 				this.numberOfStars = 0;
+				this.youLose();
 
 			}
 		} 
@@ -391,6 +422,7 @@ function startGame(event) {
 	event.preventDefault();
 	//Get rid of modal
 	document.querySelector(".off-page-start-modal").style.display = "none";
+	document.querySelector(".thumbs-up").textContent = "👍";
 
 	cardGame.startOver();
 
