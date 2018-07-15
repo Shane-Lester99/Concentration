@@ -2,7 +2,7 @@
 html {
 	/*height: 100%;*/
 	width: 100%;
-	/*background-color: yellow;*/
+	background-color: red;
 }
 
 body {
@@ -19,38 +19,49 @@ body {
 #play-again {
 	color: black;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 1px;
+	font-size: 3.5vw;
 }
 
-#take-a-break {
+/*#take-a-break {
 	color: black;
 	border-style: solid;
 	border-width: 5px;
-}
+}*/
 
 #go-back {
 	color: black;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 1px;
+	font-size: 3vw;
 }
 
 #start-button {
 	color: black;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 1px;
+	font-size: 3vw;
+
 }
 
 .difficulty-selector {
 	color: black;
 	border-style: solid;
-	border-width: 5px;
+	/*border-width: 5px;*/
+	border-width: 1px;
+	font-size: 3vw;
 }
 
 button, select {
-	min-width: 20vw;
-	width: 20vw;
+	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
+	min-width: 20vw;
+	width: 20vw;
+}
+
+select {
+	width: 21vw;
 }
 
 button, select, .card {
@@ -81,26 +92,26 @@ button:hover, select:hover {
 	/*border-style: solid;
 	border-width: 1vw;
 	border-radius: 8px;*/
-	line-height: 12vw;
-	margin-right: 8vw;
-	margin-left: 8vw;
+	line-height: 8vw;
+	margin-right: 10vw;
+	margin-left: 10vw;
 	margin-top: 10vh;
 	text-shadow: 3px 2px 2px rgba(150, 150, 150, 1);
 
 }
 
 .subtitle {
-	font-size: 5vw;
+	font-size: 4vw;
 }
 
 .game-data {
 	display: flex;
 	justify-content: space-between;
-	font-size: 4vw;
+	font-size: 3.5vw;
 	margin-right: 3vw;
 	margin-left: 3vw;
 	text-align: center;
-	margin-top: 8vh;
+	margin-top: 4vh;
 	/*text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);*/
 	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 	color: black;
@@ -108,6 +119,7 @@ button:hover, select:hover {
 }
 
 .reset {
+	font-size: 2.5vw;
 	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 	box-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
@@ -124,8 +136,8 @@ button:hover, select:hover {
 	align-items: center;
 	grid-template-columns: repeat(4, 1fr);
 	grid-auto-rows: 30vw;
-	grid-column-gap: 3vmin;
-	grid-row-gap: 3vmin;
+	grid-column-gap: 1.5vw;
+	grid-row-gap: 1.5vw;
 	border-radius: 5px;
 	align-content: stretch;
 	margin-left: 2vw;
@@ -154,8 +166,8 @@ button:hover, select:hover {
 	border-radius: 8px;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 20vmin;
-	font-size: 8vmin;
+	line-height: 20vw;
+	font-size: 8vw;
 	
 	box-shadow: 10px 11px 25px 1px rgba(0,0,0,0.43);
 }
@@ -199,13 +211,13 @@ button:hover, select:hover {
 }
 
 .off-page-start-modal {
-	font-size: 4vw;
-	font-weight: bold;
-	line-height: 6vw;
+	font-size: 5vw;
+	font-weight: bolder;
+	line-height: 7vw;
 }
 
 .thumbs-up {
-	padding-top: 15vw;
+	padding-top: 30vw;
 	font-size: 20vw;
 	opacity: 1.0;
 	animation-name: spin;
