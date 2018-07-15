@@ -45,18 +45,24 @@ body {
 	border-width: 5px;
 }
 
-
-
 button, select {
 	min-width: 20vmin;
 	width: 20vmin;
+	border-radius: 10px;
+	font-family: 'Knewave', cursive;
 }
 
 button, select, .card {
 	cursor: pointer;
+
 }
 
-.card:hover {
+button:hover, select:hover {
+	opacity: 0.6;
+
+}
+
+.front-of-card:hover {
 	opacity: 0.8;
 }
 
@@ -78,7 +84,7 @@ button, select, .card {
 	margin-right: 8vw;
 	margin-left: 8vw;
 	margin-top: 10vh;
-	text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);
+	text-shadow: 3px 2px 2px rgba(150, 150, 150, 1);
 
 }
 
@@ -94,9 +100,15 @@ button, select, .card {
 	margin-left: 3vw;
 	text-align: center;
 	margin-top: 8vh;
-	text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);
+	/*text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);*/
+	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 	color: black;
 	font-weight: bolder;
+}
+
+.reset {
+	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
+	box-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
 
 #card-game {
@@ -131,6 +143,7 @@ button, select, .card {
 .back-of-card {
 	/*background-color: #8000ae;*/
 	background-color: #778899;
+	opacity: 0.6;
 }
 
 .front-of-card, .back-of-card {

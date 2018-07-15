@@ -49,8 +49,8 @@ const cardGame = {
 			this.discardPile.push(currentTurnArray[0]);
 			this.discardPile.push(currentTurnArray[1]);
 			//Turn color of unusable cards to red
-			document.querySelector(`.${currentTurnArray[0]}`).style.color = "red";
-			document.querySelector(`.${currentTurnArray[1]}`).style.color = "red";
+			// document.querySelector(`.${currentTurnArray[0]}`).style.color = "red";
+			// document.querySelector(`.${currentTurnArray[1]}`).style.color = "red";
 		//	alert(`match of ${currentTurnArray[0]} and ${currentTurnArray[1]}`);
 		//}, 1000);
 		return;
@@ -93,9 +93,13 @@ const cardGame = {
 					setTimeout(function() {
 						//Display win alert
 						let endGameMessage = `Congratulations! You Won!<br>` 
-						+ `With ${cardGame.numberOfTurns} Moves`
-						+ ` and ${cardGame.numberOfStars} Stars`
-						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
+						+ `With ${cardGame.numberOfTurns} Moves`;
+						if (cardGame.numberOfStars == 1) {
+							endGameMessage += ` and ${cardGame.numberOfStars} Star`;
+						} else {
+							endGameMessage += ` and ${cardGame.numberOfStars} Stars`;
+						}
+						endGameMessage += ` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
 						+ ` Mode in ${savedSeconds} Seconds.<br>Well done!`
 						document.querySelector(".winning-message").innerHTML = endGameMessage;
 						document.querySelector(".off-page-win-modal").style.display = "block";
@@ -171,7 +175,7 @@ const cardGame = {
 		document.querySelector(".number-of-turns").textContent = 0;
 		let deckOfCards = document.querySelector("#all-cards");
 		for (let i = 0; i < deckOfCards.children.length; i++) {
-			deckOfCards.children.item(i).style.color = "black";
+			// deckOfCards.children.item(i).style.color = "black";
 			deckOfCards.children.item(i).firstElementChild.style.display = "block";
 			deckOfCards.children.item(i).lastElementChild.style.display = "none";
 		}
@@ -187,6 +191,8 @@ const cardGame = {
 		return didIWin;
 	},
 
+
+
 	youLose: function() {
 		//Save the timeElapsed so it can be used within the setTimeout() method
 		this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
@@ -196,6 +202,8 @@ const cardGame = {
 			//Display win alert
 			let endGameMessage = `Oh no, you ran out of stars! <br> Game Over!` 
 			document.querySelector(".thumbs-up").textContent = "😭";
+
+			//"😭";
 			document.querySelector(".winning-message").innerHTML = endGameMessage;
 			document.querySelector(".off-page-win-modal").style.display = "block";
 			// document.querySelector(".winning-modal").style.display = "block";
