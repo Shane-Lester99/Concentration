@@ -362,7 +362,7 @@ function randomizeCards() {
 }
 
 function playAgain() {
-	cardGame.startOver();
+	// cardGame.startOver();
 	document.querySelector(".off-page-win-modal").style.display = "none";
 	resetGame();
 	startGame();
@@ -377,24 +377,14 @@ function playAgain() {
  //    main.style.right = "0px";
 }
 
-
-function takeBreakAfterWin() {
-	const endModal = document.querySelector(".off-page-end-modal").style.display = "none";
-	cardGame.gameInitialized = true;
-	setTimeout(function() {
-	 	cardGame.gameInitialized = false;
-		document.querySelector("body").addEventListener("click", initializeGame);
-	}, 1000);
-}
-
 function takeBreakBeforeStart() {
-	const startModal = document.querySelector(".off-page-start-modal").style.display = "none";
+	document.querySelector(".off-page-start-modal").style.display = "none";
 	cardGame.gameInitialized = true;
 	// alert(document.querySelector(".off-page-start-modal").outerHTML);
 	setTimeout(function() {
 		cardGame.gameInitialized = false;
 		document.querySelector("body").addEventListener("click", initializeGame);
-	}, 1000);
+	}, 250);
 }
 
 function startGame(event) {
@@ -442,8 +432,6 @@ document.querySelector(".reset").addEventListener("click", resetGame);
 document.querySelector("#play-again").addEventListener("click", playAgain);
 
 //Add take a break functionality
-document.querySelector("#take-a-break").addEventListener("click", takeBreakAfterWin);
-
 document.querySelector("#go-back").addEventListener("click", takeBreakBeforeStart);
 
 //Add start button functionality and difficulty form
