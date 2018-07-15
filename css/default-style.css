@@ -158,6 +158,11 @@ button, select, .card {
 	top: 0;
 	left: 0;
 	position: fixed; 
+	text-align: center;
+	font-size: 5vw;
+	font-family: 'Markazi Text', serif;
+	animation-name: displaydown;
+    animation-duration: 0.3s
 	/*width: 100%;*/
 	/*z-index: 1;
 	height: 100%;
@@ -170,3 +175,23 @@ button, select, .card {
 	transition: 5%;*/
 }
 
+@keyframes displaydown {
+    from {top: -300px; opacity: 0.5}
+    to {top: 0; opacity: 0.8}
+}
+
+.off-page-win-modal {
+	font-size: 8vw;
+}
+
+.thumbs-up {
+	font-size: 20vw;
+	opacity: 1.0;
+	animation-name: spin;
+	animation-duration: 2s;
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}

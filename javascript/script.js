@@ -92,12 +92,12 @@ const cardGame = {
 					//Set a timeout so the graphics have time to display of the last card selection
 					setTimeout(function() {
 						//Display win alert
-						let endGameMessage = `Congratulations! You Won!\n` 
+						let endGameMessage = `Congratulations! You Won!<br>` 
 						+ `With ${cardGame.numberOfTurns} Moves`
 						+ ` and ${cardGame.numberOfStars} Stars`
 						+` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
-						+ ` Mode in ${savedSeconds} Seconds.\nWoooooo!`
-						document.querySelector(".winning-message").textContent = endGameMessage;
+						+ ` Mode in ${savedSeconds} Seconds.<br>Woooooo!`
+						document.querySelector(".winning-message").innerHTML = endGameMessage;
 						document.querySelector(".off-page-win-modal").style.display = "block";
 						// document.querySelector(".winning-modal").style.display = "block";
 						// document.querySelector(".winning-message").style.display= "inline";
