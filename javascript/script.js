@@ -379,15 +379,18 @@ function playAgain() {
 
 
 function takeBreakAfterWin() {
-	document.querySelector(".off-page-start-modal").style.display = "none";
+	const endModal = document.querySelector(".off-page-end-modal").style.display = "none";
+	cardGame.gameInitialized = true;
 	setTimeout(function() {
-		cardGame.gameInitialized = false;
+	 	cardGame.gameInitialized = false;
 		document.querySelector("body").addEventListener("click", initializeGame);
 	}, 1000);
 }
 
 function takeBreakBeforeStart() {
-	document.querySelector(".off-page-start-modal").style.display = "none";
+	const startModal = document.querySelector(".off-page-start-modal").style.display = "none";
+	cardGame.gameInitialized = true;
+	// alert(document.querySelector(".off-page-start-modal").outerHTML);
 	setTimeout(function() {
 		cardGame.gameInitialized = false;
 		document.querySelector("body").addEventListener("click", initializeGame);
@@ -401,14 +404,14 @@ function startGame(event) {
 
 	cardGame.startOver();
 
-	//gameInitialized set to true
+	// //gameInitialized set to true
 	cardGame.gameInitialized = true;
 
 
-	if (cardGame.gameStarted == true) {
-		alert("Game already started");
-		return;
-	}	
+	// if (cardGame.gameStarted == true) {
+	// 	alert("Game already started");
+	// 	return;
+	// }	
 	cardGame.difficultyLevel = document.querySelector(".difficulty-selector").value;
 	randomizeCards();
 	cardGame.gameStarted = true;
