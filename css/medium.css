@@ -62,11 +62,14 @@ select {
 }
 
 
-button, select, .card {
+button,
+select,
+.card {
 	cursor: pointer;
 }
 
-button:hover, select:hover {
+button:hover,
+select:hover {
 	opacity: 0.6;
 }
 
@@ -137,7 +140,8 @@ displayed to user*/
 	opacity: 0.6;
 }
 
-.front-of-card, .back-of-card {
+.front-of-card,
+.back-of-card {
 	display: block;
 	height: 20vw;
 	width: 20vw;
@@ -188,6 +192,8 @@ displayed to user*/
 	max-width: 500px;
 	margin-right: auto;
 	margin-left: auto;
+	max-height: 100vh;
+	overflow-y: auto;
 }
 
 .thumbs-up {

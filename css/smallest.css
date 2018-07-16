@@ -49,17 +49,21 @@ body {
 	box-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
 
-button, select {
+button,
+select {
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
 }
 
-button, select, .card {
+button,
+select,
+.card {
 	cursor: pointer;
 
 }
 
-button:hover, select:hover {
+button:hover,
+select:hover {
 	opacity: 0.6;
 
 }
@@ -131,7 +135,8 @@ displayed to user*/
 	opacity: 0.6;
 }
 
-.front-of-card, .back-of-card {
+.front-of-card,
+.back-of-card {
 	display: block;
 	height: 20vw;
 	width: 20vw;
@@ -175,6 +180,8 @@ displayed to user*/
 	font-size: 2.75vmax;
 	font-weight: bolder;
 	line-height: 3vmax;
+	max-height: 100vh;
+	overflow-y: auto;
 }
 
 .thumbs-up {

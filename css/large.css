@@ -1,33 +1,25 @@
+/*CSS styling for devices/ browsers from
+ 740px in width and up*/
 
+/*General Elements*/
 html {
-	/*height: 100%;*/
 	width: 100%;
-	/*background-color: red;*/
 }
 
 body {
 	display: flex;
 	flex-direction: column;
 	max-width: 100%;
-	/*height: 100%;*/
-	/*background: radial-gradient(#ab7dd1, #00ceba);*/
-	/*background-color: #4c5157;*/
-	background-color: #c0c0c0;
-	
+	background-color: #c0c0c0;	
 }
 
+/*Various clickable elements*/
 #play-again {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
 	font-size: 3vmin;
 }
-
-/*#take-a-break {
-	color: black;
-	border-style: solid;
-	border-width: 5px;
-}*/
 
 #go-back {
 	color: black;
@@ -47,13 +39,11 @@ body {
 .difficulty-selector {
 	color: black;
 	border-style: solid;
-	/*border-width: 5px;*/
 	border-width: 1px;
 	font-size: 2.5vmin;
 }
 
 button {
-	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
 	min-width: 15vmin;
@@ -61,29 +51,26 @@ button {
 }
 
 select {
-	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
 	width: 18vmin;
 }
 
-
-button, select, .card {
+button,
+select,
+.card {
 	cursor: pointer;
-
 }
 
-button:hover, select:hover {
+button:hover,
+select:hover {
 	opacity: 0.6;
 
 }
 
-.front-of-card:hover {
-	opacity: 0.8;
-}
-
-#game-data-and-reset {
-	
+/*Style of title, subtitle, and game data 
+displayed to user*/
+#game-data-and-reset {	
 	border-radius: 5px;
 }
 
@@ -91,17 +78,12 @@ button:hover, select:hover {
 	text-align: center;
 	font-family: 'Knewave', cursive;
 	font-size: 10vw;
-	/*color: #2b3e4a;*/
 	color: black;
-	/*border-style: solid;
-	border-width: 1vw;
-	border-radius: 8px;*/
 	line-height: 8vw;
 	margin-right: 10vw;
 	margin-left: 10vw;
 	margin-top: 8vh;
 	text-shadow: 3px 2px 2px rgba(150, 150, 150, 1);
-
 }
 
 .subtitle {
@@ -116,7 +98,6 @@ button:hover, select:hover {
 	margin-left: 3vw;
 	text-align: center;
 	margin-top: 6vh;
-	/*text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);*/
 	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 	color: black;
 	font-weight: bolder;
@@ -128,14 +109,12 @@ button:hover, select:hover {
 	box-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
 
+/*Style for card grid*/
 #card-game {
-	/*height: 100%;*/
 	width: 100%;
-	/*background: linear-gradient(to top left, #ab7dd1, #00ceba);*/
 }
 
 #all-cards {
-	
 	display: grid;
 	align-items: center;
 	grid-template-columns: repeat(4, 1fr);
@@ -147,24 +126,23 @@ button:hover, select:hover {
 	margin-left: 1.5vw;
 	margin-right: 1.5vw;
 	margin-top: 4vh;
-	/*margin-bottom: 4vw;*/
 }
 
 .front-of-card {
-	/*background-color: #2b3e4a;*/
-	/*color: white;*/
-	/*background-color: #8000ae*/
 	background-color: #708090;
-	color: #708090;
+}
+
+.front-of-card:hover {
+	opacity: 0.8;
 }
 
 .back-of-card {
-	/*background-color: #8000ae;*/
 	background-color: #778899;
 	opacity: 0.6;
 }
 
-.front-of-card, .back-of-card {
+.front-of-card,
+.back-of-card {
 	display: block;
 	height: 20vw;
 	width: 20vw;
@@ -173,11 +151,10 @@ button:hover, select:hover {
 	vertical-align: middle;
 	line-height: 20vw;
 	font-size: 8vw;
-	
 	box-shadow: 10px 11px 25px 1px rgba(0,0,0,0.43);
 }
 
-/*Styling for the modal*/
+/*Styling for the modals*/
 .modal {
 	display: none;
 	background-color: black;
@@ -194,16 +171,6 @@ button:hover, select:hover {
 	font-family: 'Markazi Text', serif;
 	animation-name: displaydown;
     animation-duration: 0.3s
-	/*width: 100%;*/
-	/*z-index: 1;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	transition: 5%;*/
 }
 
 @keyframes displaydown {
@@ -226,8 +193,9 @@ button:hover, select:hover {
 	max-width: 500px;
 	margin-right: auto;
 	margin-left: auto;
+	max-height: 100vh;
+	overflow-y: auto;
 }
-
 
 .thumbs-up {
 	padding-top: 12vmax;
