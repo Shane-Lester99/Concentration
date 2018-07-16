@@ -43,6 +43,14 @@ body {
 	font-size: 2.5vmin;
 }
 
+.reset {
+	font-size: 2.5vw;
+	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
+	box-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
+	min-width: 3.5vw;
+	min-height: 3vmin;
+}
+
 button {
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
@@ -101,12 +109,6 @@ displayed to user*/
 	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 	color: black;
 	font-weight: bolder;
-}
-
-.reset {
-	font-size: 2.5vw;
-	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
-	box-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
 
 /*Style for card grid*/
