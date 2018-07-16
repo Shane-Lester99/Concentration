@@ -21,7 +21,7 @@ body {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
-	font-size: 3.5vw;
+	font-size: 3.5vmin;
 }
 
 /*#take-a-break {
@@ -34,14 +34,14 @@ body {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
-	font-size: 3vw;
+	font-size: 3vmin;
 }
 
 #start-button {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
-	font-size: 3vw;
+	font-size: 3vmin;
 
 }
 
@@ -50,22 +50,22 @@ body {
 	border-style: solid;
 	/*border-width: 5px;*/
 	border-width: 1px;
-	font-size: 3vw;
+	font-size: 3vmin;
 }
 
 button {
 	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
-	min-width: 20vw;
-	width: 20vw;
+	min-width: 20vmin;
+	width: 20vmin;
 }
 
 select {
 	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
-	width: 21vw;
+	width: 21vmin;
 }
 
 button, select, .card {
@@ -215,9 +215,9 @@ button:hover, select:hover {
 }
 
 .off-page-start-modal {
-	font-size: 2.75vh;
+	font-size: 2.75vmax;
 	font-weight: bolder;
-	line-height: 3vh;
+	line-height: 3vmax;
 }
 
 .thumbs-up {

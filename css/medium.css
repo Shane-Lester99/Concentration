@@ -20,7 +20,7 @@ body {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
-	font-size: 3vw;
+	font-size: 3vmin;
 }
 
 /*#take-a-break {
@@ -33,14 +33,14 @@ body {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
-	font-size: 2.5vw;
+	font-size: 2.5vmin;
 }
 
 #start-button {
 	color: black;
 	border-style: solid;
 	border-width: 1px;
-	font-size: 2.5vw;
+	font-size: 2.5vmin;
 
 }
 
@@ -49,22 +49,22 @@ body {
 	border-style: solid;
 	/*border-width: 5px;*/
 	border-width: 1px;
-	font-size: 2.5vw;
+	font-size: 2.5vmin;
 }
 
 button {
 	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
-	min-width: 15vw;
-	width: 18vw;
+	min-width: 15vmin;
+	width: 18vmin;
 }
 
 select {
 	/*width: 10vw;*/
 	border-radius: 10px;
 	font-family: 'Knewave', cursive;
-	width: 18vw;
+	width: 18vmin;
 }
 
 
@@ -216,9 +216,16 @@ button:hover, select:hover {
 }
 
 .off-page-start-modal {
-	font-size: 2.75vh;
+	font-size: 2.75vmax;
 	font-weight: bolder;
-	line-height: 3vh;
+	line-height: 3vmax;
+}
+
+.start-modal-content {
+	align-content: center;
+	max-width: 500px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .thumbs-up {
