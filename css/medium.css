@@ -99,7 +99,7 @@ button:hover, select:hover {
 	line-height: 8vw;
 	margin-right: 10vw;
 	margin-left: 10vw;
-	margin-top: 12vw;;
+	margin-top: 8vh;
 	text-shadow: 3px 2px 2px rgba(150, 150, 150, 1);
 
 }
@@ -111,11 +111,11 @@ button:hover, select:hover {
 .game-data {
 	display: flex;
 	justify-content: space-between;
-	font-size: 3.5vw;
+	font-size: 4vw;
 	margin-right: 3vw;
 	margin-left: 3vw;
 	text-align: center;
-	margin-top: 8vw;
+	margin-top: 6vh;
 	/*text-shadow: 5px 3px 3px rgba(150, 150, 150, 1);*/
 	text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 	color: black;
@@ -141,13 +141,13 @@ button:hover, select:hover {
 	grid-template-columns: repeat(4, 1fr);
 	grid-auto-rows: 20vw;
 	grid-column-gap: 4vw;
-	grid-row-gap: 4vw;
+	grid-row-gap: 6vh;
 	border-radius: 5px;
 	align-content: stretch;
 	margin-left: 1.5vw;
 	margin-right: 1.5vw;
-	margin-top: 8vw;
-	margin-bottom: 4vw;
+	margin-top: 4vh;
+	/*margin-bottom: 4vw;*/
 }
 
 .front-of-card {
@@ -212,18 +212,18 @@ button:hover, select:hover {
 }
 
 .off-page-win-modal {
-	font-size: 8vw;
+	font-size: 4vh;
 }
 
 .off-page-start-modal {
-	font-size: 4vw;
+	font-size: 2.75vh;
 	font-weight: bolder;
-	line-height: 5vw;
+	line-height: 3vh;
 }
 
 .thumbs-up {
-	padding-top: 20vw;
-	font-size: 25vw;
+	padding-top: 20vh;
+	font-size: 15vh;
 	opacity: 1.0;
 	animation-name: spin;
 	animation-duration: 2.5s;
