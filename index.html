@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 	<head>
 
 		<meta charset="utf-8">
@@ -8,9 +10,8 @@
 
 		<title>Concentration Game</title>
 
+		<!-- CSS Style sheets -->
 		<link rel="stylesheet" media="screen and (max-width: 180px)" type="text/css" href="css/smallest.css">
-
-		 <!--  -->
 
 		<link rel="stylesheet" media="screen and (min-width: 181px) and (max-width: 339px)" type="text/css" href="css/small.css">
 
@@ -18,21 +19,34 @@
 
 		<link rel="stylesheet" media="screen and (min-width: 701px)"  type="text/css" href="css/large.css">
 
+		<!-- API for Google fonts used for all fonts in web application -->
 		<link href="https://fonts.googleapis.com/css?family=Knewave|Markazi+Text" rel="stylesheet">
 
+		<!-- API for reset button -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 	</head>
 
 	<body>
+
+		<!-- Header contains the name of the game and all the data associated with the game -->
 		<header id="game-data-and-reset">
 
+
+			<!-- Division for title of game -->
 			<div class="game-title">
-				<h1 class="title-of-game"> Concentration:<br><span class="subtitle"> The Classic Matching Game.</span> </h1>
+
+				<h1 class="title-of-game">
+					Concentration:
+					<br>
+					<span class="subtitle"> 
+					The Classic Matching Game.
+					</span> 
+				</h1>
+
 			</div>
 
-			
-
+			<!-- Division for data of game displayed to user -->
 			 <div class="game-data">
 
 			 	<div class="player-moves-and-stars"> 
@@ -51,9 +65,12 @@
 					<span class="time-elapse-label">Seconds Elapsed: </span> <br> 
 					<span class="timer"> 0 </span>
 				</div>
+
 			</div>
+
 		</header>
 
+		<!-- Main section contains the grid for the card elements -->
 		<main id="card-game">
 
 			<div id="all-cards">
@@ -64,7 +81,7 @@
 				</div>
 
 				<div class="card c2-1"> 
-					<span class="front-of-card c2">  </span>
+					<span class="front-of-card c2"></span>
 					<span class="back-of-card c2"> 😍 </span> 
 				</div>
 
@@ -139,24 +156,49 @@
 				</div>
 
 			</div>
+
 		</main>
+
+		<!-- The two aside tags contain the offscreen modal's 
+			that appear upon start and finish of game -->
+
+		<!-- Modal which contains message to user for when game ends -->
 		<aside class="off-page-win-modal modal">
+
 			<div class="winning-modal">
-				<div class="thumbs-up"> 👍 </div>
-				<div class="winning-message">  </div>
-				 <button type="button" id="play-again"> Continue </button>
+
+				<!-- Winning message presented to user with emoji and winning message provided by JS -->
+				<div class="thumbs-up"> 
+					👍 
+				</div>
+
+				<div class="winning-message"></div>
+
+				<!-- Button to return to the home screen -->
+				 <button type="button" id="play-again"> 
+				 	Continue
+				 </button>
+
 			</div>
+
 		</aside>
 
-
+		<!-- Modal which contains message to user when game begins -->
 		<aside class="off-page-start-modal modal">
+
 			<div class="start-modal-content">
+				<!-- Form that contains a select element so user can choose the difficulty level -->
 				<form id="choose-difficulty">
+
+					<!-- Information given to user upon start of game -->
 					<p> Welcome to Concentration: the classic matching game. </p>
 
 					<p> The rules are simple: find all matching pairs of cards before you run out of stars. The difficulty level you choose will determine how many misses it takes to lose your stars, so choose wisely! </p>
 
-					<span> Choose Difficulty: </span>
+					<span> 
+						Choose Difficulty:
+					</span>
+
 					<select name="difficulty" class="difficulty-selector">
 						<option value="easy"> Easy </option>
 						<option value="medium" selected> Medium </option>
@@ -172,14 +214,22 @@
 
 				<p> Once you are ready, press 'Begin' and get matching! </p>
 
-				<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> Begin </button>
+				<!-- Button to sumbit the form -->
+				<button id="start-button" type="submit" form="choose-difficulty" value="Submit"> 
+					Begin 
+				</button>
 
-				<button type="button" id="go-back"> Exit </button>
+				<!-- Button to exit out of modal -->
+				<button type="button" id="go-back"> 
+					Exit 
+				</button>
+
 			</div>
 
 		</aside>
 
-
+		<!-- Associated JS file -->
 		<script src="javascript/script.js"></script> 
+
 	</body>
 </html>

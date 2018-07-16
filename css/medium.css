@@ -212,7 +212,7 @@ button:hover, select:hover {
 }
 
 .off-page-win-modal {
-	font-size: 4vh;
+	font-size: 4vmax;
 }
 
 .off-page-start-modal {
@@ -221,7 +221,7 @@ button:hover, select:hover {
 	line-height: 3vmax;
 }
 
-.start-modal-content {
+.start-modal-content  {
 	align-content: center;
 	max-width: 500px;
 	margin-right: auto;
@@ -229,8 +229,8 @@ button:hover, select:hover {
 }
 
 .thumbs-up {
-	padding-top: 20vh;
-	font-size: 15vh;
+	padding-top: 12vmax;
+	font-size: 15vmax;
 	opacity: 1.0;
 	animation-name: spin;
 	animation-duration: 2.5s;
