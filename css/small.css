@@ -1,5 +1,16 @@
-/*CSS styling for devices/ browsers from
- 181px in width to 339px*/
+/*************************************************************************
+Title:       small.css
+
+Author:      Shane Lester
+
+Created on:  July 16th 2018
+
+Description: Styles the game 'Concentration: The Classic Matching Game' 
+			 web application for browsers size 181px wide to 339px wide. 
+			 For more information on the game please refer to the README
+			 within this project.
+
+**************************************************************************/
 
 /*General Elements*/
 html {

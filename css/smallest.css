@@ -1,5 +1,16 @@
-/*CSS styling for devices/ browsers from 0px 
-in width to 180px in width*/
+/*************************************************************************
+Title:       smallest.css
+
+Author:      Shane Lester
+
+Created on:  July 16th 2018
+
+Description: Styles the game 'Concentration: The Classic Matching Game' 
+			 web application for browsers size 0px wide to 180px wide. 
+			 For more information on the game please refer to the README
+			 within this project.
+
+**************************************************************************/
 
 /*General Elements*/
 html {

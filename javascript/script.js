@@ -1,7 +1,8 @@
+/*
 
-//TODO: Once the game starts over once, the timer doubles in spped
 
-//Object to keep track of card game
+*/
+
 const cardGame = {
 	numberOfTurns: 0,
 
@@ -32,39 +33,26 @@ const cardGame = {
 		setTimeout(function() {
 			let card1 = document.querySelector(`.${currentTurnArray[0]}`);
 			let card2 = document.querySelector(`.${currentTurnArray[1]}`);
-
 			card1.firstElementChild.style.display = "block";
 			card1.lastElementChild.style.display = "none";
-
 			card2.firstElementChild.style.display = "block";
 			card2.lastElementChild.style.display = "none";
-
-			//alert(`${currentTurnArray[0]} and ${currentTurnArray[1]} dont match`);
 		}, 750);
 	},
 
 	discardCards: function(currentTurnArray) {
-		//setTimeout(function() {
-			//Add cards to discard pile
-			this.discardPile.push(currentTurnArray[0]);
-			this.discardPile.push(currentTurnArray[1]);
-			//Turn color of unusable cards to red
-			// document.querySelector(`.${currentTurnArray[0]}`).style.color = "red";
-			// document.querySelector(`.${currentTurnArray[1]}`).style.color = "red";
-		//	alert(`match of ${currentTurnArray[0]} and ${currentTurnArray[1]}`);
-		//}, 1000);
+		this.discardPile.push(currentTurnArray[0]);
+		this.discardPile.push(currentTurnArray[1]);
 		return;
 	},
 
 	chooseCard: function(newCard) {
 		//Card selected before 'start game' button pushed
 		if (!this.gameStarted) {
-			//alert("Please choose difficulty then select 'Start game' to begin.");
 			return;
 		}
 		//Card selected that has already been flipped over (and found)
 		if (this.discardPile.includes(newCard)) {
-			//alert(`${newCard} has already been picked.`);
 			return;
 		}
 		//Test if card selection successful
@@ -100,20 +88,9 @@ const cardGame = {
 							endGameMessage += ` and ${cardGame.numberOfStars} Stars`;
 						}
 						endGameMessage += ` on ${cardGame.difficultyLevel[0].toUpperCase() + cardGame.difficultyLevel.slice(1)}`
-						+ ` Mode in ${savedSeconds} Seconds.<br>Well done!`
+						+ ` Mode in ${savedSeconds} Seconds.<br>Well done!`;
 						document.querySelector(".winning-message").innerHTML = endGameMessage;
 						document.querySelector(".off-page-win-modal").style.display = "block";
-						// document.querySelector(".winning-modal").style.display = "block";
-						// document.querySelector(".winning-message").style.display= "inline";
-						// document.querySelector(".play-again").style.display = "inline-block";	
-						
-
-						// let header = document.querySelector("header");
-						// let main = document.querySelector("main");
-						// header.style.position = "absolute";	
-						// main.style.position = "absolute";
-						// header.style.right = "-1000px";
-						// main.style.right = "-1000px";
 						//Start game over after alert is displayed
 						cardGame.gameStarted = false;
 					}, 500);
@@ -125,8 +102,7 @@ const cardGame = {
 			}
 			//If they didnt win, reset the current turn, update the stars
 			//and continue game play
-			this.currentTurn = [];
-			
+			this.currentTurn = [];	
 		}
 		return;
 	}, 
@@ -144,15 +120,13 @@ const cardGame = {
 			this.discardCards(correctCards);
 			didTheyMatch = true;
 			//We increment the turn
-			this.incrementTurn();
-			
+			this.incrementTurn();	
 		} else {
 			let flipTheseCardsBack = this.currentTurn;
 			//Cards dont match, so we hide the back again
 			this.flipCardToHideBack(flipTheseCardsBack);
 			this.incrementTurn();
-		}
-		
+		}	
 		//Return if the match was successful or not		
 		return didTheyMatch;
 	},
@@ -175,7 +149,6 @@ const cardGame = {
 		document.querySelector(".number-of-turns").textContent = 0;
 		let deckOfCards = document.querySelector("#all-cards");
 		for (let i = 0; i < deckOfCards.children.length; i++) {
-			// deckOfCards.children.item(i).style.color = "black";
 			deckOfCards.children.item(i).firstElementChild.style.display = "block";
 			deckOfCards.children.item(i).lastElementChild.style.display = "none";
 		}
@@ -191,8 +164,6 @@ const cardGame = {
 		return didIWin;
 	},
 
-
-
 	youLose: function() {
 		//Save the timeElapsed so it can be used within the setTimeout() method
 		this.secondsElapsed = parseInt(document.querySelector(".timer").textContent);
@@ -202,22 +173,8 @@ const cardGame = {
 			//Display win alert
 			let endGameMessage = `Oh no, you ran out of stars! <br> Game Over!` 
 			document.querySelector(".thumbs-up").textContent = "😭";
-
-			//"😭";
 			document.querySelector(".winning-message").innerHTML = endGameMessage;
 			document.querySelector(".off-page-win-modal").style.display = "block";
-			// document.querySelector(".winning-modal").style.display = "block";
-			// document.querySelector(".winning-message").style.display= "inline";
-			// document.querySelector(".play-again").style.display = "inline-block";	
-			
-
-			// let header = document.querySelector("header");
-			// let main = document.querySelector("main");
-			// header.style.position = "absolute";	
-			// main.style.position = "absolute";
-			// header.style.right = "-1000px";
-			// main.style.right = "-1000px";
-			//Start game over after alert is displayed
 			cardGame.gameStarted = false;
 		}, 500);
 	},
@@ -234,19 +191,16 @@ const cardGame = {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
-
 			} 
 			else if (this.numberOfMisses == 6) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
-
 			} 
 			else if (this.numberOfMisses == 8) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
-
 			} 
 			else if (this.numberOfMisses == 10) {
 				//0 stars
@@ -255,7 +209,6 @@ const cardGame = {
 				this.youLose();
 			}
 		}
-
 		if (this.difficultyLevel == "hard") {
 			if (this.numberOfMisses == 3) {
 				//4 stars
@@ -266,19 +219,16 @@ const cardGame = {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
-
 			} 
 			else if (this.numberOfMisses == 9) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
-
 			} 
 			else if (this.numberOfMisses == 12) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
-
 			} 
 			else if (this.numberOfMisses == 15) {
 				//0 stars
@@ -287,7 +237,6 @@ const cardGame = {
 				this.youLose();
 			}
 		}
-
 		if (this.difficultyLevel == "medium") {
 			if (this.numberOfMisses == 4) {
 				//4 stars
@@ -298,26 +247,22 @@ const cardGame = {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
-
 			} 
 			else if (this.numberOfMisses == 12) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
-
 			} 
 			else if (this.numberOfMisses == 16) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
-
 			} 
 			else if (this.numberOfMisses == 20) {
 				//0 stars
 				starLabel.innerHTML = "";
 				this.numberOfStars = 0;
 				this.youLose();
-
 			}
 		}
 
@@ -331,26 +276,22 @@ const cardGame = {
 				//3 stars
 				starLabel.innerHTML = "☆ ☆ ☆";
 				this.numberOfStars = 3;
-
 			} 
 			else if (this.numberOfMisses == 15) {
 				//2 stars
 				starLabel.innerHTML = "☆ ☆";
 				this.numberOfStars = 2;
-
 			} 
 			else if (this.numberOfMisses == 20) {
 				//1 stars
 				starLabel.innerHTML = "☆";
 				this.numberOfStars = 1;
-
 			} 
 			else if (this.numberOfMisses == 25) {
 				//0 stars
 				starLabel.innerHTML = "";
 				this.numberOfStars = 0;
 				this.youLose();
-
 			}
 		} 
 		return;
@@ -375,7 +316,6 @@ function startTimer() {
 	let timerLabel = document.querySelector(".timer");
 	//start timer
 	let physicalTimer = setInterval( function() {
-		//alert("set interval")
 		if (cardGame.gameStarted == true) {
 			timerLabel.textContent = parseInt(timerLabel.textContent, 10) + 1;
 		} else {
@@ -388,7 +328,6 @@ function resetGame() {
 	cardGame.gameInitialized = false;
 	cardGame.gameStarted = false;
 	document.querySelector("body").addEventListener("click", initializeGame);
-
 	return;
 }
 
@@ -401,25 +340,14 @@ function randomizeCards() {
 }
 
 function playAgain() {
-	// cardGame.startOver();
 	document.querySelector(".off-page-win-modal").style.display = "none";
 	resetGame();
 	startGame();
-	// document.querySelector(".winning-modal").style.display= "none";
-	// document.querySelector(".winning-message").style.display = "none";
-	// document.querySelector(".play-again").style.display = "none";		
-	// let header = document.querySelector("header");
-	// let main = document.querySelector("main");
-	// header.style.position = "static";	
-	// main.style.position = "static";
-	// header.style.right = "0px";
- //    main.style.right = "0px";
 }
 
 function takeBreakBeforeStart() {
 	document.querySelector(".off-page-start-modal").style.display = "none";
 	cardGame.gameInitialized = true;
-	// alert(document.querySelector(".off-page-start-modal").outerHTML);
 	setTimeout(function() {
 		cardGame.gameInitialized = false;
 		document.querySelector("body").addEventListener("click", initializeGame);
@@ -431,17 +359,9 @@ function startGame(event) {
 	//Get rid of modal
 	document.querySelector(".off-page-start-modal").style.display = "none";
 	document.querySelector(".thumbs-up").textContent = "👍";
-
 	cardGame.startOver();
-
-	// //gameInitialized set to true
-	cardGame.gameInitialized = true;
-
-
-	// if (cardGame.gameStarted == true) {
-	// 	alert("Game already started");
-	// 	return;
-	// }	
+	//gameInitialized set to true
+	cardGame.gameInitialized = true;	
 	cardGame.difficultyLevel = document.querySelector(".difficulty-selector").value;
 	randomizeCards();
 	cardGame.gameStarted = true;
