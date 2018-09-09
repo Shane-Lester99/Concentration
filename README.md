@@ -24,10 +24,10 @@ The speed, difficulty, and lives lost as you play the game is the way to compete
 system and leaderboard board will be added upon next update to keep track of what a good game is and to add competition
 amongst friends. Also further updates include sounds and animations as the game is played to continue improving the user experience.
 
-##Purpose:     
+## Purpose:     
 To create a fun classic game and make it playable on any web browser/ device. Also my intention was to add a modern twist to a classic game by adding emoji's as the symbols to be matched. The game is fun and addictive and the different difficulty levels and the fact that it is timed adds a way to continuously make it more challenging.
 
-##Browsers Supported:
+## Browsers Supported:
 
 - Tested on:
 	- Google Chrome 
@@ -38,7 +38,7 @@ To create a fun classic game and make it playable on any web browser/ device. Al
 		- Galaxy S5
 		- Pixel 2, 2XL
 
-##How To Play:   
+## How To Play:   
 
 - First open the game in any browser of your choice 
 	- If some browser/ device isn't supported feel free to contact me on GitHub so I can fix the issue and make the experience better for everyone :)
@@ -50,10 +50,10 @@ To create a fun classic game and make it playable on any web browser/ device. Al
 - Follow those instructions and enjoy the game :)
 
 
-##Build:
+## Build:
 - Use git clone on command line to clone this repository.
 - Open the index.html in browser of choice. 
 
-##Created by:
+## Created by:
 
 Created by Shane Lester on July 16th, 2018
