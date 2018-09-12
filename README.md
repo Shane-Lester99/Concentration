@@ -4,6 +4,7 @@
 
 * [Description](#description)
 * [Purpose](#purpose)
+* [Contributions](#contributions)
 * [Browsers Supported](#browsers-supported)
 * [How To Play](#how-to-play)
 * [Build](#build)
@@ -27,6 +28,12 @@ amongst friends. Also further updates include sounds and animations as the game 
 ## Purpose:     
 To create a fun classic game and make it playable on any web browser/ device. Also my intention was to add a modern twist to a classic game by adding emoji's as the symbols to be matched. The game is fun and addictive and the different difficulty levels and the fact that it is timed adds a way to continuously make it more challenging.
 
+## Contributions
+
+- Udacity.com came up with the basic idea of the project. However, the idea they had was to create a matching game with a 4 by 4 grid of cards.
+
+- Designed the UI and built all the code from scratch. All the files were created by me alone. 
+
 ## Browsers Supported:
 
 - Tested on:
@@ -37,6 +44,8 @@ To create a fun classic game and make it playable on any web browser/ device. Al
 		- iPad (mini 7.9"), (9.7"), (Pro 10.5"), (Pro 12.9")
 		- Galaxy S5
 		- Pixel 2, 2XL
+
+- Playable on touch devices, same UX as to on a browser
 
 ## How To Play:   
 
