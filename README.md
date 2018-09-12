@@ -8,6 +8,7 @@
 * [Browsers Supported](#browsers-supported)
 * [How To Play](#how-to-play)
 * [Build](#build)
+* [Possible Future Updates](#possible-future-updates)
 * [Created By](#created-by)
 
 ## Description: 
@@ -62,6 +63,19 @@ To create a fun classic game and make it playable on any web browser/ device. Al
 ## Build:
 - Use git clone on command line to clone this repository.
 - Open the index.html in browser of choice. 
+
+## Possible Future Updates
+- Want to implement a score system (based on the time and difficulty level played)
+
+- Want to implement a leader board
+
+- Would like to add other game modes (like, for example, a mode where you try to collect the most cards in a row correctly out of some amount of cards)
+
+- Would like to add a multiplayer mode, where people try to win the fastest, or the most correct cards consistently or somethinf
+
+- Want to implement sounds to make the game more enganging
+
+- Want to package it a cross platform mobile application (Android and IOS) with React. 
 
 ## Created by:
 
